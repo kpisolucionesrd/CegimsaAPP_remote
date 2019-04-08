@@ -1,0 +1,94 @@
+import React from 'react';
+import img from '../imgs/logo.png';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,AsyncStorage
+} from 'react-native';
+
+export default class Menu extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
+  irRegistrarEquipo=async()=>{
+    this.props.navigation.navigate('AgregarEquipo');
+  };
+
+  irRegistrarJugador=async()=>{
+    this.props.navigation.navigate('AgregarJugador');
+  };
+
+  irAgregarFotosVideos=async()=>{
+    this.props.navigation.navigate('AgregarFotos');
+  };
+
+  irEstadisticasEquipos=async()=>{
+    this.props.navigation.navigate('Equipos');
+  };
+
+  render() {
+    //AsyncStorage.clear()
+    return (
+      <View style={styles.container}>
+        <Image source={img} style={styles.logoIMG}/>
+
+        <TouchableOpacity
+          style={styles.btnMenu}
+          onPress={this.irRegistrarEquipo}
+        >
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Registrar Equipo</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.btnMenu}
+          onPress={this.irRegistrarJugador}
+        >
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Registrar Jugador</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.btnMenu}
+          onPress={this.irAgregarFotosVideos}
+        >
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Agregar Fotos & Videos</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.btnMenu}
+          onPress={this.irEstadisticasEquipos}
+        >
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Estadísticas</Text>
+        </TouchableOpacity>
+
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+  logoIMG:{
+    resizeMode:'contain',
+    width:'50%',
+    marginLeft:'auto',
+    marginRight:'auto',
+    height:'30%',
+    marginBottom:'25%'
+  },
+  btnMenu:{
+    backgroundColor:'darkblue',
+    width:'70%',
+    height:'8%',
+    marginLeft:'auto',
+    marginRight:'auto',
+    alignItems: 'center',
+    paddingTop: 10,
+    marginBottom:'5%'
+  }
+});
