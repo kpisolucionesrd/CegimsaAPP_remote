@@ -39,28 +39,28 @@ export default class Menu extends React.Component {
           style={styles.btnMenu}
           onPress={this.irRegistrarEquipo}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Registrar Equipo</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'35%'}}>Registrar Equipo</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irRegistrarJugador}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Registrar Jugador</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'35%'}}>Registrar Jugador</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irAgregarFotosVideos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Agregar Fotos & Videos</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'35%'}}>Agregar Fotos & Videos</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irEstadisticasEquipos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Estadísticas</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'35%'}}>Estadísticas</Text>
         </TouchableOpacity>
 
       </View>
@@ -71,7 +71,7 @@ export default class Menu extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'rgb(15,24,130)',
   },
   logoIMG:{
     resizeMode:'contain',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     marginBottom:'25%'
   },
   btnMenu:{
-    backgroundColor:'darkblue',
+    backgroundColor:'rgb(236,73,16)',
     width:'70%',
     height:'8%',
     marginLeft:'auto',

@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: 'red',
+    backgroundColor: 'rgb(15,24,130)',
     padding:15,
     paddingTop:80
   },
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
 
   },
   btnMenu:{
-    backgroundColor:'darkblue',
+    backgroundColor:'rgb(236,73,16)',
     width:'70%',
     height:'20%',
     marginLeft:'auto',
