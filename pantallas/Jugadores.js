@@ -127,7 +127,7 @@ export default class Jugadores extends Component<Props> {
   }
 
   prueba=async()=>{
-    var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
+    var dataOrdenadaSaved=await AsyncStorage.getItem("orderList");
     alert(dataOrdenadaSaved);
   }
 
