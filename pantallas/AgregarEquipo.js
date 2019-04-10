@@ -88,7 +88,7 @@ export default class AgregarEquipo extends React.Component {
             color="white"
             size={60}
           />
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Guardar Equipo</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:40}}>Guardar Equipo</Text>
         </TouchableOpacity>
       </ScrollView>
     );
@@ -119,11 +119,11 @@ const styles = StyleSheet.create({
   btnMenu:{
     backgroundColor:'rgb(236,73,16)',
     width:'70%',
-    height:'18%',
+    height:'28%',
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
-    paddingTop: 10,
+    paddingTop: 30,
     marginBottom:'5%',
     shadowColor:'black',
     shadowOffset:{
