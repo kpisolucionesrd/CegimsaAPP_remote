@@ -105,6 +105,5 @@ const styles = StyleSheet.create({
       fontWeight:'bold',
       fontSize:25,
       marginBottom:5,
-      lineHeight:'35%'
     },
   });
