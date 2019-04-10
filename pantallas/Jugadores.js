@@ -55,7 +55,16 @@ export default class Jugadores extends Component<Props> {
         if(dataOrdenadaSaved[equipo]!=undefined){
           return dataOrdenadaSaved[equipo]
         }else{
-          return [{label:"No Hay jugadores"}]
+          if(equiposConJugadores.includes(equipo)){
+            let objetoOrden=await objetoEquipos[equipo].map((valor)=>{
+              return{
+                label:valor
+              }
+            })
+            return objetoOrden
+        }else{
+            return [{label:"No Hay jugadores"}]
+        }
         }
       }
   };
@@ -96,7 +105,20 @@ export default class Jugadores extends Component<Props> {
   };
 
   guardarOrderList=async(objeto)=>{
-    await AsyncStorage.setItem("orderList",await JSON.stringify(objeto));
+    const { navigation } = this.props;
+    const equipo = navigation.getParam('equipo', 'NO-ID');
+    var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
+    var ordenlist
+
+    if(dataOrdenadaSaved==null){
+      ordenlist={
+        equipo:[objeto]
+      }
+      await AsyncStorage.setItem("orderList",await JSON.stringify(ordenlist));
+    }else{
+      dataOrdenadaSaved[equipo]=[objeto];
+      await AsyncStorage.setItem("orderList",await JSON.stringify(dataOrdenadaSaved));
+    }
   }
 
   render() {
