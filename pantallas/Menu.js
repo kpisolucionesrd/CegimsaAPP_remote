@@ -39,28 +39,28 @@ export default class Menu extends React.Component {
           style={styles.btnMenu}
           onPress={this.irRegistrarEquipo}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'10'}}>Registrar Equipo</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:10}}>Registrar Equipo</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irRegistrarJugador}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'10'}}>Registrar Jugador</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:10}}>Registrar Jugador</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irAgregarFotosVideos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'10'}}>Agregar Fotos & Videos</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:10}}>Agregar Fotos & Videos</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irEstadisticasEquipos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'10'}}>Estadísticas</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:10}}>Estadísticas</Text>
         </TouchableOpacity>
       </View>
     );
