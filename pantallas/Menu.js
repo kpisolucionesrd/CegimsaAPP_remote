@@ -62,7 +62,6 @@ export default class Menu extends React.Component {
         >
           <Text style={{color:'white',fontWeight:'bold',fontSize:20,lineHeight:'35%'}}>Estadísticas</Text>
         </TouchableOpacity>
-
       </View>
     );
   }
