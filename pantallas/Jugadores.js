@@ -126,10 +126,16 @@ export default class Jugadores extends Component<Props> {
     }
   }
 
+  prueba=async()=>{
+    var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
+    alert(dataOrdenadaSaved);
+  }
+
   render() {
     return (
       <ScrollView style={styles.container}>
         <Image source={img} style={styles.logoIMG}/>
+        <Text onPress={this.prueba}>PRUEBA</Text>
 
         <DraggableFlatList
           data={this.state.data}
