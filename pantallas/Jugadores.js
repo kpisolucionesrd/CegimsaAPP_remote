@@ -115,12 +115,12 @@ export default class Jugadores extends Component<Props> {
 
     if(dataOrdenadaSaved==null){
       ordenlist={
-        equipo:[objeto]
+        equipo:objeto
       }
       await AsyncStorage.setItem("orderList",await JSON.stringify(ordenlist));
       alert("orden list guardada")
     }else{
-      dataOrdenadaSaved[equipo]=[objeto];
+      dataOrdenadaSaved[equipo]=objeto;
       await AsyncStorage.setItem("orderList",await JSON.stringify(dataOrdenadaSaved));
       alert("orden list guardada")
     }
@@ -131,11 +131,15 @@ export default class Jugadores extends Component<Props> {
     alert(dataOrdenadaSaved);
   }
 
-  render() {
+  borrar=async()=>{
+    await AsyncStorage.clear()
+  }
+  render(){
     return (
       <ScrollView style={styles.container}>
         <Image source={img} style={styles.logoIMG}/>
-        <Text onPress={this.prueba}>PRUEBA</Text>
+        <Text onPress={this.prueba} style={{fontSize:50,color:'white'}}>PRUEBA</Text>
+        <Text onPress={this.borrar} style={{fontSize:50,color:'white'}}>PRUEBA_2</Text>
 
         <DraggableFlatList
           data={this.state.data}
