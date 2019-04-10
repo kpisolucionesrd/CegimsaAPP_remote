@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
     width:'75%',
     height:120,
     backgroundColor:'white',
+    fontSize:20
 
   },
   btnMenu:{
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
-    paddingTop: 30,
+    paddingTop: 10,
     marginBottom:'5%',
     shadowColor:'black',
     shadowOffset:{
