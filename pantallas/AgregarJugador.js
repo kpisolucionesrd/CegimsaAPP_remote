@@ -123,7 +123,7 @@ export default class AgregarJugador extends React.Component {
           style={styles.btnMenu}
           onPress={this.guardarJugador}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Guardar Jugador</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:40,lineHeight:80}}>Guardar Jugador</Text>
         </TouchableOpacity>
 
       </ScrollView>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   labelMenu:{
     color:'white',
     fontWeight:'bold',
-    fontSize:25,
+    fontSize:45,
     marginBottom:5
   },
   labelMenuEspecial:{
@@ -154,9 +154,10 @@ const styles = StyleSheet.create({
   },
   inputMenu:{
     width:'85%',
-    height:40,
+    height:70,
     backgroundColor:'white',
-    marginBottom:25
+    marginBottom:25,
+    fontSize:20
   },
   pickerMenu:{
     width:'85%',
@@ -173,11 +174,11 @@ const styles = StyleSheet.create({
   btnMenu:{
     backgroundColor:'rgb(236,73,16)',
     width:'70%',
-    height:'18%',
+    height:'28%',
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
-    paddingTop: 10,
+    paddingTop: 30,
     marginBottom:'5%',
     shadowColor:'black',
     shadowOffset:{

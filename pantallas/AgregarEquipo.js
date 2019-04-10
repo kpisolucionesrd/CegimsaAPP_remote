@@ -88,7 +88,7 @@ export default class AgregarEquipo extends React.Component {
             color="white"
             size={60}
           />
-          <Text style={{color:'white',fontWeight:'bold',fontSize:40}}>Guardar Equipo</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:40,lineHeight:80}}>Guardar Equipo</Text>
         </TouchableOpacity>
       </ScrollView>
     );
