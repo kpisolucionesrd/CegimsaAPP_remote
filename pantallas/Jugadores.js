@@ -67,7 +67,7 @@ export default class Jugadores extends Component<Props> {
       <TouchableOpacity
         style={{ 
           height: 50, 
-          backgroundColor: isActive ? 'rgb(15,24,130)' : 'white',
+          backgroundColor: isActive ? 'red' : 'white',
           alignItems: 'center', 
           justifyContent: 'center',
           marginBottom:15,
