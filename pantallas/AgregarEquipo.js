@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
-    paddingTop: 30,
+    paddingTop: 10,
     marginBottom:'5%',
     shadowColor:'black',
     shadowOffset:{

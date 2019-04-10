@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet,Text,TouchableOpacity,AsyncStorage,ImagePickerIOS,CameraRoll } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
 import ImagePicker from 'react-native-image-picker';
+import { Icon } from 'react-native-elements';
 
 export default class AgregarFotos extends React.Component {
   constructor(props){
@@ -161,7 +162,7 @@ export default class AgregarFotos extends React.Component {
 
             objetoImagenesJugador[JugadorSeleccionado]=await vectorImagenes;
             await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
-            alert("Jugador null");
+            alert("Imagen Cargada Correctamente");
             this.setState({
               JugadorSeleccionado:null,
               EquipoSeleccionado:null,
@@ -171,7 +172,7 @@ export default class AgregarFotos extends React.Component {
             /* Si el Jugador estaba en el objeto */
             var jugadoresConImgs=await Object.keys(objetoImagenesJugador);
             if(jugadoresConImgs.includes(JugadorSeleccionado)){
-              alert("Jugador Poseia IMGS");
+              alert("Imagen Cargada Correctamente");
               var vector=await objetoImagenesJugador[JugadorSeleccionado];
               await vector.push(nameImage);
               objetoImagenesJugador[JugadorSeleccionado]=await vector;
@@ -185,7 +186,7 @@ export default class AgregarFotos extends React.Component {
               var vectorImagenes=[nameImage];
               objetoImagenesJugador[JugadorSeleccionado]=await vectorImagenes
               await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
-              alert("Jugador No poseia IMGs")
+              alert("Imagen Cargada Correctamente");
   
               this.setState({
                 JugadorSeleccionado:null,
@@ -316,25 +317,14 @@ export default class AgregarFotos extends React.Component {
           style={styles.btnMenu}
           onPress={this._pickImage1_1}
         >
+          <Icon 
+            name="ios-camera"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
           <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Seleccionar Imagenes</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.btnMenu}
-          onPress={this.prueba}
-        >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Mostrar Rutas IMGS</Text>
-        </TouchableOpacity>
-
-
-        <TouchableOpacity
-          style={styles.btnMenu}
-          onPress={this.limpiar}
-        >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Borrar Todo</Text>
-        </TouchableOpacity>
-
-
       </ScrollView>
     );
   }
@@ -351,20 +341,22 @@ const styles = StyleSheet.create({
   labelMenu:{
     color:'white',
     fontWeight:'bold',
-    fontSize:25,
+    fontSize:45,
     marginBottom:5
   },
   inputMenu:{
     width:'85%',
-    height:40,
+    height:70,
     backgroundColor:'white',
-    marginBottom:25
+    marginBottom:25,
+    fontSize:20
   },
   pickerMenu:{
     width:'85%',
     marginBottom:35,
-    height:30,
-    backgroundColor:'white'
+    height:70,
+    backgroundColor:'white',
+    fontSize:20
   },
   dropDownBox:{
     width:'75%',
@@ -375,11 +367,17 @@ const styles = StyleSheet.create({
   btnMenu:{
     backgroundColor:'rgb(236,73,16)',
     width:'70%',
-    height:'20%',
+    height:'28%',
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
-    paddingTop: 10,
-    marginBottom:'5%'
+    paddingTop: 30,
+    marginBottom:'5%',
+    shadowColor:'black',
+    shadowOffset:{
+      width:5,
+      height:5
+    },
+    shadowOpacity:15
   }
 });

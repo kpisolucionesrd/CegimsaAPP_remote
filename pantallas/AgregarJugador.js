@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet,Text,TextInput,TouchableOpacity,AsyncStorage,Picker } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
+import { Icon } from 'react-native-elements';
 
 
 export default class AgregarJugador extends React.Component {
@@ -123,6 +124,12 @@ export default class AgregarJugador extends React.Component {
           style={styles.btnMenu}
           onPress={this.guardarJugador}
         >
+          <Icon 
+            name="ios-save"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
           <Text style={{color:'white',fontWeight:'bold',fontSize:40,lineHeight:80}}>Guardar Jugador</Text>
         </TouchableOpacity>
 
@@ -162,8 +169,9 @@ const styles = StyleSheet.create({
   pickerMenu:{
     width:'85%',
     marginBottom:35,
-    height:30,
-    backgroundColor:'white'
+    height:70,
+    backgroundColor:'white',
+    fontSize:20
   },
   dropDownBox:{
     width:'75%',
