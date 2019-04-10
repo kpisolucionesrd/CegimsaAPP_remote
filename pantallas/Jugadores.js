@@ -12,16 +12,12 @@ export default class Jugadores extends Component<Props> {
         data:[{label:"No hay elementos"}]
       }
       this.Initialsconfigurations().then(result=>{
-        var vectorObjetos=result.map(valor=>{
-          return{
-            label:valor
-          }
-        })
         this.setState({
-          data:vectorObjetos
+          data:result,
+
         })
       });
-    }
+  }
   
   async componentDidUpdate(prevProps) {
     console.log("prueba");
@@ -36,14 +32,31 @@ export default class Jugadores extends Component<Props> {
       const { navigation } = this.props;
       const equipo = navigation.getParam('equipo', 'NO-ID');
 
+      var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
+
+
       /* Extrayendo Equipos */
       var objetoEquipos=await JSON.parse(await AsyncStorage.getItem("ObjetoEquipos"));
       var equiposConJugadores=Object.keys(objetoEquipos);
-      
-      if(equiposConJugadores.includes(equipo)){
-          return objetoEquipos[equipo]
+
+      //En caso de que no exista orden en los jugadores
+      if (dataOrdenadaSaved==null){
+        if(equiposConJugadores.includes(equipo)){
+            let objetoOrden=await objetoEquipos[equipo].map((valor)=>{
+              return{
+                label:valor
+              }
+            })
+            return objetoOrden
+        }else{
+            return [{label:"No Hay jugadores"}]
+        }
       }else{
-          return ["No Hay Jugadores"]
+        if(dataOrdenadaSaved[equipo]!=undefined){
+          return dataOrdenadaSaved[equipo]
+        }else{
+          return [{label:"No Hay jugadores"}]
+        }
       }
   };
 
@@ -54,10 +67,11 @@ export default class Jugadores extends Component<Props> {
       <TouchableOpacity
         style={{ 
           height: 50, 
-          backgroundColor: isActive ? 'blue' : 'white',
+          backgroundColor: isActive ? 'rgb(15,24,130)' : 'white',
           alignItems: 'center', 
           justifyContent: 'center',
-          marginBottom:15
+          marginBottom:15,
+          color:'white'
         }}
         onLongPress={move}
         onPressOut={moveEnd}
@@ -81,6 +95,10 @@ export default class Jugadores extends Component<Props> {
     });
   };
 
+  guardarOrderList=async(objeto)=>{
+    await AsyncStorage.setItem("orderList",await JSON.stringify(objeto));
+  }
+
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -91,7 +109,10 @@ export default class Jugadores extends Component<Props> {
           renderItem={this.renderItem}
           keyExtractor={(item, index) => `draggable-item-${item.label}`}
           scrollPercent={3}
-          onMoveEnd={({ data }) => this.setState({ data })}
+          onMoveEnd={({ data }) =>{ 
+            this.setState({ data })
+            this.guardarOrderList(data)
+          }}
         />
       </ScrollView>
     );

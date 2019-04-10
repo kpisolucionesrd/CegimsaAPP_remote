@@ -93,17 +93,23 @@ const styles = StyleSheet.create({
     btnMenu:{
       backgroundColor:'rgb(236,73,16)',
       width:'70%',
-      height:'35%',
+      height:'28%',
       marginLeft:'auto',
       marginRight:'auto',
       alignItems: 'center',
       paddingTop: 10,
-      marginBottom:'5%'
+      marginBottom:'5%',
+      shadowColor:'black',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:15
     },
     labelMenu:{
       color:'white',
       fontWeight:'bold',
-      fontSize:25,
-      marginBottom:5,
+      fontSize:45,
+      marginBottom:5
     },
   });
