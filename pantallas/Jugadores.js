@@ -41,6 +41,7 @@ export default class Jugadores extends Component<Props> {
 
       //En caso de que no exista orden en los jugadores
       if (dataOrdenadaSaved==null){
+        alert("orderlist null")
         if(equiposConJugadores.includes(equipo)){
             let objetoOrden=await objetoEquipos[equipo].map((valor)=>{
               return{
@@ -53,8 +54,10 @@ export default class Jugadores extends Component<Props> {
         }
       }else{
         if(dataOrdenadaSaved[equipo]!=undefined){
+          alert("orderlist not undefined")
           return dataOrdenadaSaved[equipo]
         }else{
+          alert("orderlist undefined")
           if(equiposConJugadores.includes(equipo)){
             let objetoOrden=await objetoEquipos[equipo].map((valor)=>{
               return{
@@ -62,9 +65,9 @@ export default class Jugadores extends Component<Props> {
               }
             })
             return objetoOrden
-        }else{
+          }else{
             return [{label:"No Hay jugadores"}]
-        }
+          }
         }
       }
   };
