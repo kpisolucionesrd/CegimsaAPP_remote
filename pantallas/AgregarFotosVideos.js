@@ -148,7 +148,7 @@ export default class AgregarFotos extends React.Component {
     
     var JugadorSeleccionado=this.state.JugadorSeleccionado;
     var EquipoSeleccionado=this.state.EquipoSeleccionado;
-    if(JugadorSeleccionado!=null && EquipoSeleccionado!=null){
+    if(JugadorSeleccionado!=null && EquipoSeleccionado!=null & JugadorSeleccionado!="" && EquipoSeleccionado!=""){
       ImagePicker.launchImageLibrary(options,async(result)=>{
       var objetoImagenesJugador=await JSON.parse(await AsyncStorage.getItem("objetoImagenesJugador"));
       if (!result.didCancel) {
@@ -165,8 +165,8 @@ export default class AgregarFotos extends React.Component {
             await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
             alert("Imagen Cargada Correctamente");
             this.setState({
-              JugadorSeleccionado:null,
-              EquipoSeleccionado:null,
+              JugadorSeleccionado:"",
+              EquipoSeleccionado:"",
               image:nameImage
             })
           }else{
@@ -179,8 +179,8 @@ export default class AgregarFotos extends React.Component {
               objetoImagenesJugador[JugadorSeleccionado]=await vector;
               await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
               this.setState({
-                JugadorSeleccionado:null,
-                EquipoSeleccionado:null,
+                JugadorSeleccionado:"",
+                EquipoSeleccionado:"",
                 image:nameImage
               })
             }else{
@@ -190,8 +190,8 @@ export default class AgregarFotos extends React.Component {
               alert("Imagen Cargada Correctamente");
   
               this.setState({
-                JugadorSeleccionado:null,
-                EquipoSeleccionado:null,
+                JugadorSeleccionado:"",
+                EquipoSeleccionado:"",
                 image:nameImage
               })
             }
