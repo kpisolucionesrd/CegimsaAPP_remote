@@ -109,18 +109,16 @@ export default class Jugadores extends Component<Props> {
 
   guardarOrderList=async(objeto)=>{
     const { navigation } = this.props;
-    var equipo = navigation.getParam('equipo', 'NO-ID');
+    var equipoName = navigation.getParam('equipo', 'NO-ID');
     var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
-    var ordenlist
+    var ordenlist={}
 
     if(dataOrdenadaSaved==null){
-      ordenlist={
-        equipo:objeto
-      }
+      ordenlist[equipoName]=objeto
       await AsyncStorage.setItem("orderList",await JSON.stringify(ordenlist));
       alert("orden list guardada")
     }else{
-      dataOrdenadaSaved[equipo]=objeto;
+      dataOrdenadaSaved[equipoName]=objeto;
       await AsyncStorage.setItem("orderList",await JSON.stringify(dataOrdenadaSaved));
       alert("orden list guardada")
     }
