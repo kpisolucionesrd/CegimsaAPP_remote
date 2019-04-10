@@ -57,6 +57,7 @@ export default class GaleriaImagenes extends Component<Props> {
     return (
       <PhotoBrowser
         mediaList={media}
+        startOnGrid={true}
       
       />
     );

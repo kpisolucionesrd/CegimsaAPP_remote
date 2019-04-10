@@ -41,7 +41,6 @@ export default class Jugadores extends Component<Props> {
 
       //En caso de que no exista orden en los jugadores
       if (dataOrdenadaSaved==null){
-        alert("orderlist null")
         if(equiposConJugadores.includes(equipo)){
             let objetoOrden=await objetoEquipos[equipo].map((valor)=>{
               return{
@@ -54,10 +53,8 @@ export default class Jugadores extends Component<Props> {
         }
       }else{
         if(dataOrdenadaSaved[equipo]!=undefined){
-          alert("orderlist not undefined")
           return dataOrdenadaSaved[equipo]
         }else{
-          alert("orderlist undefined")
           if(equiposConJugadores.includes(equipo)){
             let objetoOrden=await objetoEquipos[equipo].map((valor)=>{
               return{
@@ -116,11 +113,9 @@ export default class Jugadores extends Component<Props> {
     if(dataOrdenadaSaved==null){
       ordenlist[equipoName]=objeto
       await AsyncStorage.setItem("orderList",await JSON.stringify(ordenlist));
-      alert("orden list guardada")
     }else{
       dataOrdenadaSaved[equipoName]=objeto;
       await AsyncStorage.setItem("orderList",await JSON.stringify(dataOrdenadaSaved));
-      alert("orden list guardada")
     }
   }
 
@@ -136,8 +131,6 @@ export default class Jugadores extends Component<Props> {
     return (
       <ScrollView style={styles.container}>
         <Image source={img} style={styles.logoIMG}/>
-        <Text onPress={this.prueba} style={{fontSize:50,color:'white'}}>PRUEBA</Text>
-        <Text onPress={this.borrar} style={{fontSize:50,color:'white'}}>PRUEBA_2</Text>
 
         <DraggableFlatList
           data={this.state.data}
