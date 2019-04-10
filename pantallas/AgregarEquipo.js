@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet,Text,TextInput,TouchableOpacity,AsyncStorage } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 export default class AgregarEquipo extends React.Component {
   constructor(props){
@@ -50,11 +51,6 @@ export default class AgregarEquipo extends React.Component {
     }
   };
 
-  mostrarDatos=async()=>{
-    var objetoEquipos=await AsyncStorage.getItem("Equipos");
-    alert(objetoEquipos);
-  }
-
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -86,15 +82,13 @@ export default class AgregarEquipo extends React.Component {
           style={styles.btnMenu}
           onPress={this.guardarEquipo}
         >
+          <Icon 
+            name="ios-save"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
           <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Guardar Equipo</Text>
-        </TouchableOpacity>
-
-
-        <TouchableOpacity
-          style={styles.btnMenu}
-          onPress={this.mostrarDatos}
-        >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:20}}>Monstrar Equipos</Text>
         </TouchableOpacity>
       </ScrollView>
     );
@@ -112,23 +106,30 @@ const styles = StyleSheet.create({
   labelMenu:{
     color:'white',
     fontWeight:'bold',
-    fontSize:25,
+    fontSize:45,
     marginBottom:5
   },
   inputMenu:{
     width:'85%',
-    height:40,
+    height:70,
     backgroundColor:'white',
-    marginBottom:25
+    marginBottom:25,
+    fontSize:20
   },
   btnMenu:{
     backgroundColor:'rgb(236,73,16)',
     width:'70%',
-    height:'20%',
+    height:'18%',
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
     paddingTop: 10,
-    marginBottom:'5%'
+    marginBottom:'5%',
+    shadowColor:'black',
+    shadowOffset:{
+      width:5,
+      height:5
+    },
+    shadowOpacity:15
   }
 });
