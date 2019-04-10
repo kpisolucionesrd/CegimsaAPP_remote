@@ -105,6 +105,7 @@ export default class AgregarJugador extends React.Component {
             this.setState({EquipoSeleccionado: itemIndex})
           }
           dropdownStyle={styles.dropDownBox}
+          dropdownTextStyle={{fontSize:20}}
         
         />
 

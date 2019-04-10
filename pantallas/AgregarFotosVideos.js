@@ -301,6 +301,7 @@ export default class AgregarFotos extends React.Component {
             }
           }
           dropdownStyle={styles.dropDownBox}
+          dropdownTextStyle={{fontSize:20}}
         />
 
         <Text style={styles.labelMenu}>Seleccionar Jugador</Text>
@@ -312,6 +313,7 @@ export default class AgregarFotos extends React.Component {
         }
           
           dropdownStyle={styles.dropDownBox}
+          dropdownTextStyle={{fontSize:20}}
         />
 
         <TouchableOpacity
