@@ -132,7 +132,6 @@ export default class AgregarFotos extends React.Component {
   }
   }
 
-
   _pickImage1_1 = async () => {
     
     const options = {
@@ -203,9 +202,6 @@ export default class AgregarFotos extends React.Component {
       alert("Debe seleccionar un jugador y Equipo");
     }
   }
-
-
-
 
   async pickImage2(){
     var objetoImagenesJugador=await JSON.parse(await AsyncStorage.getItem("objetoImagenesJugador"));
