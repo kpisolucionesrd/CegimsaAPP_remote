@@ -165,8 +165,6 @@ export default class AgregarFotos extends React.Component {
             await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
             alert("Imagen Cargada Correctamente");
             this.setState({
-              JugadorSeleccionado:"",
-              EquipoSeleccionado:"",
               image:nameImage
             })
           }else{
@@ -179,8 +177,6 @@ export default class AgregarFotos extends React.Component {
               objetoImagenesJugador[JugadorSeleccionado]=await vector;
               await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
               this.setState({
-                JugadorSeleccionado:"",
-                EquipoSeleccionado:"",
                 image:nameImage
               })
             }else{
@@ -190,8 +186,6 @@ export default class AgregarFotos extends React.Component {
               alert("Imagen Cargada Correctamente");
   
               this.setState({
-                JugadorSeleccionado:"",
-                EquipoSeleccionado:"",
                 image:nameImage
               })
             }
