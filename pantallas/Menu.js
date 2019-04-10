@@ -41,13 +41,13 @@ export default class Menu extends React.Component {
           onPress={this.irRegistrarEquipo}
         >
           <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>
-            <Icon 
+            Registrar Equipo
+          </Text>
+          <Icon 
             name="ios-american-football"
             type="ionicon"
             color="white"
             />
-            Registrar Equipo
-          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
