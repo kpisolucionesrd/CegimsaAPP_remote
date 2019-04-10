@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,AsyncStorage
 } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 export default class Menu extends React.Component {
   static navigationOptions = {
@@ -39,28 +40,35 @@ export default class Menu extends React.Component {
           style={styles.btnMenu}
           onPress={this.irRegistrarEquipo}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:60,lineHeight:80}}>Registrar Equipo</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>
+            <Icon 
+            name="ios-american-football"
+            type="ionicon"
+            color="white"
+            />
+            Registrar Equipo
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irRegistrarJugador}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:60,lineHeight:80}}>Registrar Jugador</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Registrar Jugador</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irAgregarFotosVideos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:60,lineHeight:80}}>Agregar Fotos & Videos</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Agregar Fotos & Videos</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.irEstadisticasEquipos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:60,lineHeight:80}}>Estadísticas</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Estadísticas</Text>
         </TouchableOpacity>
       </View>
     );
