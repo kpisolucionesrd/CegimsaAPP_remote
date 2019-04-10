@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,AsyncStorage
+  View,ScrollView
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
@@ -33,7 +33,7 @@ export default class Menu extends React.Component {
   render() {
     //AsyncStorage.clear()
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Image source={img} style={styles.logoIMG}/>
 
         <TouchableOpacity
@@ -53,6 +53,12 @@ export default class Menu extends React.Component {
           style={styles.btnMenu}
           onPress={this.irRegistrarJugador}
         >
+          <Icon 
+            name="ios-contact"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
           <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Registrar Jugador</Text>
         </TouchableOpacity>
 
@@ -60,6 +66,12 @@ export default class Menu extends React.Component {
           style={styles.btnMenu}
           onPress={this.irAgregarFotosVideos}
         >
+          <Icon 
+            name="ios-add-circle"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
           <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Agregar Fotos & Videos</Text>
         </TouchableOpacity>
 
@@ -67,9 +79,15 @@ export default class Menu extends React.Component {
           style={styles.btnMenu}
           onPress={this.irEstadisticasEquipos}
         >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Estadísticas</Text>
+          <Icon 
+            name="ios-stats"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
+          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Analisis</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -102,6 +120,5 @@ const styles = StyleSheet.create({
       height:5
     },
     shadowOpacity:15
-
   }
 });

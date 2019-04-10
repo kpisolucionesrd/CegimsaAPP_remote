@@ -173,11 +173,17 @@ const styles = StyleSheet.create({
   btnMenu:{
     backgroundColor:'rgb(236,73,16)',
     width:'70%',
-    height:'20%',
+    height:'18%',
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
     paddingTop: 10,
-    marginBottom:'5%'
+    marginBottom:'5%',
+    shadowColor:'black',
+    shadowOffset:{
+      width:5,
+      height:5
+    },
+    shadowOpacity:15
   }
 });
