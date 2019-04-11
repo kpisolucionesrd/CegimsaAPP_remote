@@ -1,5 +1,5 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image} from 'react-native';
+import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
 var RNFS=require('react-native-fs');
 
@@ -55,11 +55,19 @@ export default class GaleriaImagenes extends Component<Props> {
     const media=this.state.media==null ? [{photo:"no encontrado"}]:this.state.media
     
     return (
-      <PhotoBrowser
-        mediaList={media}
-        startOnGrid={true}
-      
-      />
+      <View>
+        {
+          this.state.media["photo"].map((valor)=>{
+            return <Image source={valor}/>
+          })
+        }
+        
+      </View>
+
+      // <PhotoBrowser
+      //   mediaList={media}
+      //   startOnGrid={true}
+      // />
     );
   }
 }

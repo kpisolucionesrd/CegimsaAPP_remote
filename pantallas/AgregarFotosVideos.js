@@ -143,7 +143,8 @@ export default class AgregarFotos extends React.Component {
           path: 'images',
           waitUntilSaved:true
         },
-        mediaType:'mixed'
+        mediaType:'mixed',
+        noData:false
       };
     
     var JugadorSeleccionado=this.state.JugadorSeleccionado;
