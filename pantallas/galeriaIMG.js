@@ -12,7 +12,7 @@ export default class GaleriaImagenes extends Component<Props> {
     super(props);
 
     this.state={
-      media:{photo:["ImagenNoEncontrada"]}
+      media:{photo:null}
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -52,16 +52,14 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   render() {
-    const media=this.state.media==null ? [{photo:"no encontrado"}]:this.state.media
+    const media2=this.state.media==null ? [{photo:"no encontrado"}]:this.state.media
     
     return (
       <View>
-        {
-          this.state.media["photo"].map((valor)=>{
+        { this.state.media==null ? this.state.media["photo"].map((valor)=>{
             return <Image source={valor}/>
-          })
+          }):<Text>NO HAY FOTOS</Text>
         }
-        
       </View>
 
       // <PhotoBrowser
