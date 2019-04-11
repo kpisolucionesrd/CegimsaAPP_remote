@@ -60,6 +60,7 @@ export default class GaleriaImagenes extends Component<Props> {
             return <Image source={valor}/>
           }):<Text>NO HAY FOTOS</Text>
         }
+        <Text onPress={this.Initialsconfigurations}>ACTUAL</Text>
       </View>
 
       // <PhotoBrowser
