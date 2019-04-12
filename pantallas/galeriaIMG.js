@@ -33,6 +33,23 @@ export default class GaleriaImagenes extends Component<Props> {
     title: 'Galeria Imagenes',
   };
 
+  async componentDidMount(){
+    this.Initialsconfigurations().then(result=>{
+
+      var vectorObjetos=result.map((elemento)=>{
+        return{
+          photo:RNFS.DocumentDirectoryPath+"/images/"+elemento
+        }
+      });
+
+      this.setState({
+        media:vectorObjetos
+      });
+    });
+  };
+
+
+
   /* Configuraciones Iniciales */
   Initialsconfigurations=async()=>{
       const { navigation } = this.props;
