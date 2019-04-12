@@ -48,8 +48,6 @@ export default class GaleriaImagenes extends Component<Props> {
     });
   };
 
-
-
   /* Configuraciones Iniciales */
   Initialsconfigurations=async()=>{
       const { navigation } = this.props;
@@ -68,6 +66,10 @@ export default class GaleriaImagenes extends Component<Props> {
       }
   };
 
+  prueba=async()=>{
+    alert(JSON.stringify(this.state.media));
+  }
+
   render() {
     const media2=this.state.media==null ? [{photo:"no encontrado"}]:this.state.media
     
@@ -77,7 +79,7 @@ export default class GaleriaImagenes extends Component<Props> {
             return <Image source={valor}/>
           }):<Text>NO HAY FOTOS</Text>
         }
-        <Text onPress={this.Initialsconfigurations}>ACTUAL</Text>
+        <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
 
       // <PhotoBrowser
