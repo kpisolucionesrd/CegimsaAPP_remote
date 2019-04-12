@@ -35,9 +35,7 @@ export default class GaleriaImagenes extends Component<Props> {
     this.Initialsconfigurations().then(result=>{
 
       var vectorObjetos=result.map((elemento)=>{
-        return{
-          photo:RNFS.DocumentDirectoryPath+"/images/"+elemento
-        }
+        return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
       this.setState({
