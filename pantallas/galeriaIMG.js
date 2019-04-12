@@ -65,8 +65,8 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   prueba=async()=>{
-    alert(await AsyncStorage.getItem("objetoImagenesJugador"));
-    //alert(JSON.stringify(this.state.media[0]["photo"]));
+    //alert(await AsyncStorage.getItem("objetoImagenesJugador"));
+    alert(JSON.stringify(this.state.media));
   }
 
   render() {
