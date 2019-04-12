@@ -75,7 +75,7 @@ export default class GaleriaImagenes extends Component<Props> {
     
     return (
       <View>
-        { this.state.media==null ? this.state.media["photo"].map((valor)=>{
+        { this.state.media==null ? this.state.media[0]["photo"].map((valor)=>{
             return <Image source={valor}/>
           }):<Text>NO HAY FOTOS</Text>
         }
