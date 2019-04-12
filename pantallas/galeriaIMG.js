@@ -90,7 +90,7 @@ export default class GaleriaImagenes extends Component<Props> {
       <View>
         <Image source={require("../imgs/logo.png")}/>
         { this.state.media.map((valor)=>{
-          return(<Text>{valor}</Text>)
+          return(<Image source={{uri:valor}}/>)
           })
         }
         <Text onPress={this.prueba}>ACTUAL</Text>
