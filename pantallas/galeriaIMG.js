@@ -40,13 +40,18 @@ export default class GaleriaImagenes extends Component<Props> {
   async componentDidMount(){
     this.Initialsconfigurations().then(result=>{
 
+      //Concatenacion del path
       var vectorObjetos=result.map((elemento)=>{
         return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
+      //Filtro de las imagenes: eliminar las rutas no validas
       var vectorObjetos2=vectorObjetos.filter((valor)=>{
         return valor!=""
-      })
+      });
+
+      //Creando objeto con los requires
+
 
       this.setState({
         media:vectorObjetos2
@@ -86,6 +91,7 @@ export default class GaleriaImagenes extends Component<Props> {
   }
 
   render() {
+    
     return (
       <View>
         <Image source={require("../imgs/logo.png")}/>
