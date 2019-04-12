@@ -23,7 +23,7 @@ export default class GaleriaImagenes extends Component<Props> {
       });
 
       var vectorObjetos2=vectorObjetos.filter((valor)=>{
-        return (valor!="" && valor!=null )
+        return valor!=""
       })
 
       this.setState({
@@ -44,7 +44,7 @@ export default class GaleriaImagenes extends Component<Props> {
       });
 
       var vectorObjetos2=vectorObjetos.filter((valor)=>{
-        return (valor!="" && valor!=null)
+        return valor!=""
       })
 
       this.setState({
