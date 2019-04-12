@@ -12,7 +12,8 @@ export default class GaleriaImagenes extends Component<Props> {
     super(props);
 
     this.state={
-      media:["prueba","prueba1"]
+      media:["prueba","prueba1"],
+      media2:["prueba","prueba1"]
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -68,15 +69,12 @@ export default class GaleriaImagenes extends Component<Props> {
   }
 
   render() {
-    const media2=this.state.media==null ? [{photo:"no encontrado"}]:this.state.media
-    
+   
     return (
       <View>
-        { this.state.media!=null ? this.state.media.filter((valor)=>{
-            if(valor!=""){
-            return <Text>{valor}</Text>
-            }
-          }):<Text>NO HAY FOTOS</Text>
+        { this.state.media2.map((valor)=>{
+          <Text>{valor}</Text>
+        })
         }
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
