@@ -42,8 +42,12 @@ export default class GaleriaImagenes extends Component<Props> {
         return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
+      var vectorObjetos2=vectorObjetos.filter((valor)=>{
+        return valor!=""
+      })
+
       this.setState({
-        media:vectorObjetos
+        media:vectorObjetos2
       });
     });
   };
@@ -77,7 +81,7 @@ export default class GaleriaImagenes extends Component<Props> {
       <View>
         { this.state.media.map((valor)=>{
           return(<Image source={require(valor)}/>)
-        })
+          })
         }
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
