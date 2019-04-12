@@ -72,8 +72,10 @@ export default class GaleriaImagenes extends Component<Props> {
     
     return (
       <View>
-        { this.state.media!=null ? ["kelvin","melendez","dipre"].map((valor)=>{
-            return <Text>{valor}</Text>
+        { this.state.media!=null ? this.state.media.filter((valor)=>{
+            if(valor!=""){
+            return <Image source={valor}/>
+            }
           }):<Text>NO HAY FOTOS</Text>
         }
         <Text onPress={this.prueba}>ACTUAL</Text>
