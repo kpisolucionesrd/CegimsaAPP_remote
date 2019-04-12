@@ -85,7 +85,6 @@ export default class GaleriaImagenes extends Component<Props> {
           return(<Image source={require(valor)}/>)
           })
         }
-        <Image source={require(valor)}/>
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
     );
