@@ -12,7 +12,7 @@ export default class GaleriaImagenes extends Component<Props> {
     super(props);
 
     this.state={
-      media:{photo:null}
+      media:["prueba","prueba1"]
     }
 
     this.Initialsconfigurations().then(result=>{
