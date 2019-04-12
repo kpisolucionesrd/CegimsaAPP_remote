@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(15,24,130)',
+    minHeight:'100%'
   },
   logoIMG:{
     resizeMode:'contain',
