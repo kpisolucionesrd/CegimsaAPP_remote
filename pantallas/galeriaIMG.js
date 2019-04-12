@@ -14,7 +14,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
     this.state={
       media:["prueba","prueba1"],
-      media2:["prueba","prueba1"]
+      media2:["../imgs/logo.png"]
     }
 
     this.Initialsconfigurations().then(result=>{
