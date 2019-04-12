@@ -2,6 +2,7 @@ import React, {Component,PureComponent} from 'react';
 import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
 var RNFS=require('react-native-fs');
+import img from '../imgs/logo.png';
 
 
 
@@ -73,23 +74,20 @@ export default class GaleriaImagenes extends Component<Props> {
   prueba=async()=>{
     //alert(await AsyncStorage.getItem("objetoImagenesJugador"));
     alert(JSON.stringify(this.state.media));
+
+    // { this.state.media.map((valor)=>{
+    //   return(<Image source={require(valor)}/>)
+    //   })
+    // }
   }
 
   render() {
    
     return (
       <View>
-        { this.state.media.map((valor)=>{
-          return(<Image source={require(valor)}/>)
-          })
-        }
+        <Image source={img}/>
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
-
-      // <PhotoBrowser
-      //   mediaList={media}
-      //   startOnGrid={true}
-      // />
     );
   }
 }
