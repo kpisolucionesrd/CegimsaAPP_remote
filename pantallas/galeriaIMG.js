@@ -18,9 +18,7 @@ export default class GaleriaImagenes extends Component<Props> {
     this.Initialsconfigurations().then(result=>{
 
       var vectorObjetos=result.map((elemento)=>{
-        return{
-          photo:RNFS.DocumentDirectoryPath+"/images/"+elemento
-        }
+        return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
       this.setState({
@@ -59,7 +57,6 @@ export default class GaleriaImagenes extends Component<Props> {
 
       if(jugadoresConImagenes.includes(jugador)){
         var vector=await objetoImagenes[jugador]
-        alert(JSON.stringify(vector));
         return vector;
       }else{
           alert("No hay Jugadores para mostrar");
@@ -77,7 +74,7 @@ export default class GaleriaImagenes extends Component<Props> {
     
     return (
       <View>
-        { this.state.media==null ? this.state.media[0]["photo"].map((valor)=>{
+        { this.state.media==null ? this.state.media.map((valor)=>{
             return <Image source={valor}/>
           }):<Text>NO HAY FOTOS</Text>
         }
