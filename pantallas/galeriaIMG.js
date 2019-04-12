@@ -12,8 +12,7 @@ export default class GaleriaImagenes extends Component<Props> {
     super(props);
 
     this.state={
-      media:["prueba","prueba1"],
-      media2:["prueba","prueba1"]
+      media:["prueba","prueba1"]
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -22,8 +21,12 @@ export default class GaleriaImagenes extends Component<Props> {
         return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
+      var vectorObjetos2=vectorObjetos.filter((valor)=>{
+        return valor!=""
+      })
+
       this.setState({
-        media:vectorObjetos
+        media:vectorObjetos2
       });
     });
   }
@@ -72,7 +75,7 @@ export default class GaleriaImagenes extends Component<Props> {
    
     return (
       <View>
-        { this.state.media2.map((valor)=>{
+        { this.state.media.map((valor)=>{
           return(<Image source={valor}/>)
         })
         }
