@@ -59,6 +59,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       if(jugadoresConImagenes.includes(jugador)){
         var vector=await objetoImagenes[jugador]
+        alert(JSON.stringify(vector));
         return vector;
       }else{
           alert("No hay Jugadores para mostrar");
