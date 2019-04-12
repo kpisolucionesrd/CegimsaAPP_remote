@@ -67,7 +67,7 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   prueba=async()=>{
-    alert(JSON.stringify(this.state.media.constructor));
+    alert(JSON.stringify(this.state.media[0]));
   }
 
   render() {
