@@ -73,19 +73,19 @@ export default class GaleriaImagenes extends Component<Props> {
 
   prueba=async()=>{
     //alert(await AsyncStorage.getItem("objetoImagenesJugador"));
-    alert(JSON.stringify(this.state.media));
-
-    // { this.state.media.map((valor)=>{
-    //   return(<Image source={require(valor)}/>)
-    //   })
-    // }
+    //alert(JSON.stringify(this.state.media));
+    await AsyncStorage.clear();
   }
 
   render() {
    
     return (
       <View>
-        <Image source={require("../imgs/logo.png")}/>
+        { this.state.media.map((valor)=>{
+          return(<Image source={require(valor)}/>)
+          })
+        }
+        <Image source={require(valor)}/>
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
     );
