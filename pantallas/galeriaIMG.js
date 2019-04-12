@@ -73,7 +73,7 @@ export default class GaleriaImagenes extends Component<Props> {
     return (
       <View>
         { this.state.media2.map((valor)=>{
-          <Text>{valor}</Text>
+          return(<Text>{valor}</Text>)
         })
         }
         <Text onPress={this.prueba}>ACTUAL</Text>
