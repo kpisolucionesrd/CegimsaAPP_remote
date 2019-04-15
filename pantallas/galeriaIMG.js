@@ -32,13 +32,13 @@ export default class GaleriaImagenes extends Component<Props> {
       //Creando objeto con los requires
       var counting=1
       var objetoRequires={}
-      await vectorObjetos2.forEach(img => {
+      vectorObjetos2.forEach(img => {
         keyImgName="img"+counting;
         objetoRequires[keyImgName]=img
         counting=counting+1
       });
 
-      await this.setState({
+      this.setState({
         media:objetoRequires
       })
     });
