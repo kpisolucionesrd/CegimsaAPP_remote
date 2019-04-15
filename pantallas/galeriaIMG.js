@@ -82,7 +82,7 @@ export default class GaleriaImagenes extends Component<Props> {
   prueba=async()=>{
     var objetoImagenes={};
     var counting=1;
-    alert(this.state.vectorObjetos2);
+    alert(this.state.vectorObjetos2.length);
 
     // await this.state.vectorObjetos2.forEach(img => {
     //   objetoImagenes["img"+counting]=require(img)
