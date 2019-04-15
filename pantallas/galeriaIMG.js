@@ -19,17 +19,28 @@ export default class GaleriaImagenes extends Component<Props> {
 
     this.Initialsconfigurations().then(result=>{
 
+      //Concatenacion del path
       var vectorObjetos=result.map((elemento)=>{
         return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
+      //Filtro de las imagenes: eliminar las rutas no validas
       var vectorObjetos2=vectorObjetos.filter((valor)=>{
         return valor!=""
-      })
-
-      this.setState({
-        media:vectorObjetos2
       });
+
+      //Creando objeto con los requires
+      var counting=1
+      var objetoRequires={}
+      await vectorObjetos2.forEach(img => {
+        keyImgName="img"+counting;
+        objetoRequires[keyImgName]=img
+        counting=counting+1
+      });
+
+      await this.setState({
+        media:objetoRequires
+      })
     });
   }
   
@@ -51,11 +62,17 @@ export default class GaleriaImagenes extends Component<Props> {
       });
 
       //Creando objeto con los requires
-
-
-      this.setState({
-        media:vectorObjetos2
+      var counting=1
+      var objetoRequires={}
+      await vectorObjetos2.forEach(img => {
+        keyImgName="img"+counting;
+        objetoRequires[keyImgName]=img
+        counting=counting+1
       });
+
+      await this.setState({
+        media:objetoRequires
+      })
     });
   };
 
@@ -79,9 +96,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
   prueba=async()=>{
     //alert(await AsyncStorage.getItem("objetoImagenesJugador"));
-    this.state.media.map((valor)=>{
-      alert(JSON.stringify(valor));
-    })
+    await alert(JSON.stringify(this.state.media))
     //await AsyncStorage.clear();
 
     // { this.state.media.map((valor)=>{
