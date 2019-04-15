@@ -36,14 +36,16 @@ export default class GaleriaImagenes extends Component<Props> {
       var objetoRequires={}
       vectorObjetos2.forEach(img => {
         keyImgName="img"+counting;
-        objetoRequires[keyImgName]=img
+        objetoRequires[keyImgName]=require(img)
         counting=counting+1
       });
 
-      this.setState({
-        media:require(objetoRequires),
-        vectorImagenes:Object.keys(objetoRequires)
-      })
+      setTimeout(() => {
+        this.setState({
+          media:objetoRequires,
+          vectorImagenes:Object.keys(objetoRequires)
+        })
+      }, 2000);
     });
   }
   
@@ -69,14 +71,16 @@ export default class GaleriaImagenes extends Component<Props> {
       var objetoRequires={}
       vectorObjetos2.forEach(img => {
         keyImgName="img"+counting;
-        objetoRequires[keyImgName]=img
+        objetoRequires[keyImgName]=require(img)
         counting=counting+1
       });
 
-      this.setState({
-        media:require(objetoRequires),
-        vectorImagenes:Object.keys(objetoRequires)
-      })
+      setTimeout(() => {
+        this.setState({
+          media:objetoRequires,
+          vectorImagenes:Object.keys(objetoRequires)
+        })
+      }, 2000);
     });
   };
 
