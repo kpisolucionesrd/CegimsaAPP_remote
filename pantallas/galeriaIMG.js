@@ -16,7 +16,8 @@ export default class GaleriaImagenes extends Component<Props> {
       media:{
         "default":require("../imgs/logo.png")
       },
-      vectorImagenes:["default"]
+      vectorImagenes:["default"],
+      vectorObjetos2:["../imgs/logo.png"]
     }
 
     this.Initialsconfigurations().then(result=>{
