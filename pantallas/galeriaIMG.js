@@ -2,9 +2,6 @@ import React, {Component,PureComponent} from 'react';
 import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
 var RNFS=require('react-native-fs');
-import img from '../imgs/logo.png';
-
-
 
 type Props = {};
 export default class GaleriaImagenes extends Component<Props> {
@@ -85,9 +82,8 @@ export default class GaleriaImagenes extends Component<Props> {
 
     alert(this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
-    objetoImagenes["img"]=require(this.state.vectorObjetos2[0]);
-
-
+    objetoImagenes["img"]={uri:this.state.vectorObjetos2[0]}
+    
     // this.state.vectorObjetos2.forEach(element => {
     //   objetoImagenes["img"]=require("../imgs/logo.png");
     //   alert(element);
