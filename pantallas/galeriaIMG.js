@@ -13,8 +13,10 @@ export default class GaleriaImagenes extends Component<Props> {
     super(props);
 
     this.state={
-      media:["prueba","prueba1"],
-      media2:["../imgs/logo.png"]
+      media:{
+        "prueba":["prueba","prueba1"]
+      },
+      vectorImagenes:["prueba"]
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -39,7 +41,8 @@ export default class GaleriaImagenes extends Component<Props> {
       });
 
       this.setState({
-        media:objetoRequires
+        media:require(objetoRequires),
+        vectorImagenes:Object.keys(objetoRequires)
       })
     });
   }
@@ -71,7 +74,8 @@ export default class GaleriaImagenes extends Component<Props> {
       });
 
       this.setState({
-        media:objetoRequires
+        media:require(objetoRequires),
+        vectorImagenes:Object.keys(objetoRequires)
       })
     });
   };
@@ -113,6 +117,12 @@ export default class GaleriaImagenes extends Component<Props> {
     return (
       <View>
         <Image source={imagenesJson.img}/>
+        
+        { this.state.vectorImagenes.map((valor)=>{
+          return(<Image source={this.state.media[valor]}/>)
+          })
+        }
+
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
     );
