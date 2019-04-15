@@ -14,9 +14,9 @@ export default class GaleriaImagenes extends Component<Props> {
 
     this.state={
       media:{
-        "prueba":["prueba","prueba1"]
+        "default":require("../imgs/logo.png")
       },
-      vectorImagenes:["prueba"]
+      vectorImagenes:["default"]
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -31,21 +31,9 @@ export default class GaleriaImagenes extends Component<Props> {
         return valor!=""
       });
 
-      //Creando objeto con los requires
-      var counting=1
-      var objetoRequires={}
-      vectorObjetos2.forEach(img => {
-        keyImgName="img"+counting;
-        objetoRequires[keyImgName]=require(img)
-        counting=counting+1
+      this.setState({
+        vectorObjetos2:vectorObjetos2
       });
-
-      setTimeout(() => {
-        this.setState({
-          media:objetoRequires,
-          vectorImagenes:Object.keys(objetoRequires)
-        })
-      }, 2000);
     });
   }
   
@@ -66,21 +54,9 @@ export default class GaleriaImagenes extends Component<Props> {
         return valor!=""
       });
 
-      //Creando objeto con los requires
-      var counting=1
-      var objetoRequires={}
-      vectorObjetos2.forEach(img => {
-        keyImgName="img"+counting;
-        objetoRequires[keyImgName]=require(img)
-        counting=counting+1
+      this.setState({
+        vectorObjetos2:vectorObjetos2
       });
-
-      setTimeout(() => {
-        this.setState({
-          media:objetoRequires,
-          vectorImagenes:Object.keys(objetoRequires)
-        })
-      }, 2000);
     });
   };
 
@@ -103,14 +79,7 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   prueba=async()=>{
-    //alert(await AsyncStorage.getItem("objetoImagenesJugador"));
-    await alert(JSON.stringify(this.state.media))
-    //await AsyncStorage.clear();
 
-    // { this.state.media.map((valor)=>{
-    //   return(<Image source={require(valor)}/>)
-    //   })
-    // }
   }
 
   render() {
