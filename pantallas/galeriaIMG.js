@@ -79,18 +79,28 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   prueba=async()=>{
+    var objetoImagenes={};
+    var counting=1;
+
+    await this.state.vectorObjetos2.forEach(img => {
+      objetoImagenes["img"+counting]=require(img)
+    });
+
+    setTimeout(() => {
+      this.setState({
+        media:objetoImagenes,
+        vectorImagenes:Object.keys(objetoImagenes)
+
+      })
+    }, 2000);
 
   }
 
   render() {
-    const imagenesJson={
-      img:require("../imgs/logo.png")
-    }
     
     return (
       <View>
-        <Image source={imagenesJson.img}/>
-        
+       
         { this.state.vectorImagenes.map((valor)=>{
           return(<Image source={this.state.media[valor]}/>)
           })
