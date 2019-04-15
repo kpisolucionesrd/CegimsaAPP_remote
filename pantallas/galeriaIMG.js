@@ -85,7 +85,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
     alert(this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
-    objetoImagenes["img"]=require("/holaddfdf/imgs/logo.png");
+    objetoImagenes["img"]=require(this.state.vectorObjetos2[0]);
 
 
     // this.state.vectorObjetos2.forEach(element => {
