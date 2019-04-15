@@ -82,7 +82,11 @@ export default class GaleriaImagenes extends Component<Props> {
 
     alert(this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
-    objetoImagenes["img"]={uri:this.state.vectorObjetos2[0]}
+    objetoImagenes["default"]={uri:this.state.vectorObjetos2[0]}
+
+    this.setState({
+      media:objetoImagenes
+    })
     
     // this.state.vectorObjetos2.forEach(element => {
     //   objetoImagenes["img"]=require("../imgs/logo.png");
