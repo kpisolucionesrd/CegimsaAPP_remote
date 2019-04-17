@@ -117,7 +117,7 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <View style={{marginTop: 22}}>
             <View>
-              <Image source={this.state.imgModal} style={{width:600,height:600,marginLeft:'auto',marginRight:'auto'}}/>
+              <Image source={this.state.imgModal} style={{width:'100%',marginLeft:'auto',marginRight:'auto',marginBottom:20}}/>
             </View>
 
           <TouchableOpacity
