@@ -22,7 +22,7 @@ export default class GaleriaImagenes extends Component<Props> {
       modalVisible:false,
       modalVisibleVideo:false,
       imgModal:require("../imgs/logo.png"),
-      videoModal:require("../imgs/videoPrueba.mp4")
+      videoModal:require("../imgs/videoPrueba.mov")
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -34,12 +34,12 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de las imagenes: eliminar las rutas no validas
       var vectorImagenes=vectorObjetos.filter((valor)=>{
-        return valor!="" && (valor.includes("png"))
+        return valor!="" && (valor.includes("jpg") || valor.includes("png"))
       });
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
       var vectorVideos=vectorObjetos.filter((valor)=>{
-        return valor!="" && valor.includes("mp4")
+        return valor!="" && (valor.includes("mp4") || valor.includes("MOV") || valor.includes("mov"))
       });
 
       this.setState({
@@ -63,7 +63,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de las imagenes: eliminar las rutas no validas y tomar solo las imagenes
       var vectorImagenes=vectorObjetos.filter((valor)=>{
-        return valor!="" && (valor.includes("png"))
+        return valor!="" && (valor.includes("jpg") || valor.includes("png"))
       });
 
 
