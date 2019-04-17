@@ -128,14 +128,14 @@ export default class GaleriaImagenes extends Component<Props> {
           {
             this.state.vectorImagenes.map((valor)=>{
               return(
-              <View onPress={()=>
+              <TouchableOpacity onPress={()=>
                 {
                   alert("prueba")
                 }
               }
                 style={{backgroundColor:'black'}}>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
-              </View>
+              </TouchableOpacity>
               )
             })
           }
