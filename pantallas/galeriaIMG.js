@@ -80,7 +80,7 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes={};
     var counting=1;
 
-    alert("File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
+    alert("file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
     //objetoImagenes["default"]={uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
 
@@ -117,7 +117,7 @@ export default class GaleriaImagenes extends Component<Props> {
           return(<Image source={this.state.media[valor]}/>)
           })
         }
-        <Image source={{uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
+        <Image source={{uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
 
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
