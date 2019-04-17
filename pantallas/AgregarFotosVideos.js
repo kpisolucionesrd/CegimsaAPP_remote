@@ -324,16 +324,6 @@ export default class AgregarFotos extends React.Component {
           <Text style={{color:'white',fontWeight:'bold',fontSize:40}}>Seleccionar Imagenes</Text>
         </TouchableOpacity>
 
-
-        <TouchableOpacity
-          style={styles.btnMenu}
-          onPress={this.limpiar}
-        >
-          <Text style={{color:'white',fontWeight:'bold',fontSize:40}}>LIMPIAR</Text>
-        </TouchableOpacity>
-
-
-
         <TouchableOpacity
           style={styles.btnMenu}
           onPress={this.prueba}

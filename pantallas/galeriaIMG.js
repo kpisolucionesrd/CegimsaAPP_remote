@@ -218,6 +218,7 @@ export default class GaleriaImagenes extends Component<Props> {
         <View style={styles.container}>
           {
             this.state.vectorImagenesName.map((valor)=>{
+              if(valor!="imagenDefault"){
               return(
                 <TouchableOpacity onPress={()=>
                   {
@@ -226,7 +227,7 @@ export default class GaleriaImagenes extends Component<Props> {
                 }>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
                 </TouchableOpacity>
-              )
+              )}
             })
           }
 
