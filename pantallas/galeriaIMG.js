@@ -88,7 +88,8 @@ export default class GaleriaImagenes extends Component<Props> {
     
 
     this.setState({
-      media:objetoImagenes
+      media:objetoImagenes,
+      vectorImagenes:Object.keys(objetoImagenes)
     })
 
     alert("Actualizado")
@@ -126,7 +127,7 @@ export default class GaleriaImagenes extends Component<Props> {
         <Text onPress={this.prueba}>ACTUAL</Text>
 
         {
-          this.state.vectorObjetos2.map((valor)=>{
+          this.state.vectorImagenes.map((valor)=>{
             return(<Image source={this.state.media[valor]} style={{width:100, height:100}}/>)
           })
         }
