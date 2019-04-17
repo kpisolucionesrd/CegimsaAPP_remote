@@ -16,7 +16,6 @@ export default class GaleriaImagenes extends Component<Props> {
       },
       vectorImagenes:["default"],
       vectorObjetos2:["../imgs/logo.png"],
-      modalVisible:false,
       imgModal:require("../imgs/logo.png")
     }
 
@@ -38,6 +37,12 @@ export default class GaleriaImagenes extends Component<Props> {
     });
   }
   
+
+  state={
+    modalVisible:false
+  }
+
+
   static navigationOptions = {
     title: 'Galeria Imagenes',
   };
@@ -104,7 +109,6 @@ export default class GaleriaImagenes extends Component<Props> {
       imgModal:this.state.media[imagen],
       modalVisible:true
     })
-    alert(JSON.stringify(this.state.media[imagen]))
   }
 
   render() {
@@ -142,10 +146,9 @@ export default class GaleriaImagenes extends Component<Props> {
         <Modal
           animationType="slide"
           transparent={false}
-          visible={this.state.modalVisible}>
-          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
-            <Image source={this.state.imgModal} style={{width:300,height:300}}/>
-          </View>
+          visible={this.state.modalVisible}
+        >
+        <Text>Prueba Modal</Text>
         </Modal>
       </ScrollView>
     );
