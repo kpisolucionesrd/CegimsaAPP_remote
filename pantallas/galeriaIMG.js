@@ -80,9 +80,12 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes={};
     var counting=1;
 
-    alert("file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
-    //"../imgs/logo.png"
-    //objetoImagenes["default"]={uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
+    //alert("file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
+    
+    await this.state.vectorObjetos2.forEach((imagen)=>{
+      objetoImagenes["img"+1]={uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
+    });
+    
 
     this.setState({
       media:objetoImagenes
@@ -112,22 +115,20 @@ export default class GaleriaImagenes extends Component<Props> {
     //   return(<Image source={this.state.media[valor]}/>)
     //   })
     // }
-
-
-
-
-
   }
 
   render() {
     const imagen={uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
     return (
       <View>
-       
-
-        <Image source={imagen} style={{width:100, height:100}}/>
-
         <Text onPress={this.prueba}>ACTUAL</Text>
+
+        {
+          this.state.vectorObjetos2.map((valor)=>{
+            return(<Image source={this.state.media[valor]} style={styles.imgGaleria}/>)
+          })
+        }
+        <Image source={imagen} style={{width:100, height:100}}/>
       </View>
     );
   }
@@ -139,28 +140,10 @@ const styles = StyleSheet.create({
       justifyContent:'space-around',
       alignItems:'center'
     },
-    logoIMG:{
-      resizeMode:'contain',
-      width:'50%',
-      marginLeft:'auto',
-      marginRight:'auto',
-      height:'30%',
-      marginBottom:'25%'
-    },
-    btnMenu:{
-      backgroundColor:'darkblue',
-      width:'70%',
-      height:'35%',
-      marginLeft:'auto',
-      marginRight:'auto',
-      alignItems: 'center',
-      paddingTop: 10,
-      marginBottom:'5%'
-    },
-    labelMenu:{
-      color:'white',
-      fontWeight:'bold',
-      fontSize:25,
-      marginBottom:5
-    },
+    imgGaleria:{
+      width:100,
+      height:100,
+      marginLeft:10,
+      marginTop:10
+    }
   });
