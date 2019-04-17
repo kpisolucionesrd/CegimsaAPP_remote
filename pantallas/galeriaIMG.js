@@ -130,10 +130,9 @@ export default class GaleriaImagenes extends Component<Props> {
               return(
               <TouchableOpacity onPress={()=>
                 {
-                  alert("prueba")
+                  this.mostrarImagen(valor)
                 }
-              }
-                style={{backgroundColor:'black'}}>
+              }>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
               </TouchableOpacity>
               )
@@ -145,7 +144,7 @@ export default class GaleriaImagenes extends Component<Props> {
           transparent={false}
           visible={this.state.modalVisible}>
           <View style={{marginTop: 22}}>
-            <Image source={this.state.imgModal}/>
+            <Image source={this.state.imgModal} style={{width:300,height:300}}/>
           </View>
         </Modal>
       </ScrollView>
