@@ -83,7 +83,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
     //alert("file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
     
-    await this.state.vectorObjetos2.forEach((imagen)=>{
+    await this.state.vectorObjetos2.forEach(async (imagen)=>{
       objetoImagenes["img"+counting]={uri:"File://"+RNFS.DocumentDirectoryPath+imagen}
       await counting=counting+1
     });
