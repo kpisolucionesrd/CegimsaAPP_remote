@@ -120,12 +120,11 @@ export default class GaleriaImagenes extends Component<Props> {
   }
 
   render() {
-    
     return (
       <View>
        
 
-        <Image source={{uri:RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
+        <Image source={source={uri:RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
 
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
