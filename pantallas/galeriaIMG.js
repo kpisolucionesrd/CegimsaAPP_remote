@@ -1,5 +1,5 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View} from 'react-native';
+import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View,Modal} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
 import { Icon } from 'react-native-elements';
 var RNFS=require('react-native-fs');
@@ -15,7 +15,9 @@ export default class GaleriaImagenes extends Component<Props> {
         "default":require("../imgs/logo.png")
       },
       vectorImagenes:["default"],
-      vectorObjetos2:["../imgs/logo.png"]
+      vectorObjetos2:["../imgs/logo.png"],
+      modalVisible:false,
+      imgModal:require("../imgs/logo.png")
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -100,7 +102,7 @@ export default class GaleriaImagenes extends Component<Props> {
   render() {
     const imagen={uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
     return (
-      <View>
+      <ScrollView>
 
         <TouchableOpacity
           style={styles.btnMenu}
@@ -117,19 +119,30 @@ export default class GaleriaImagenes extends Component<Props> {
         <View style={styles.container}>
           {
             this.state.vectorImagenes.map((valor)=>{
-              return(<Image source={this.state.media[valor]} style={styles.imgGaleria}/>)
+              return(
+              <View>
+                <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
+              </View>
+              )
             })
           }
         </View>
-      </View>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}>
+          <View style={{marginTop: 22}}>
+            <Image source={this.state.imgModal}/>
+          </View>
+        </Modal>
+      </ScrollView>
     );
   }
 }
 const styles = StyleSheet.create({
     container: {
       flex:1,
-      flexDirection:'column',
-      flexWrap:'wrap',
+      flexDirection:'row'
     },
     btnMenu:{
       backgroundColor:'rgb(236,73,16)',
