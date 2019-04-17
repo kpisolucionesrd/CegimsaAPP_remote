@@ -97,6 +97,13 @@ export default class GaleriaImagenes extends Component<Props> {
     })
 
     alert("Actualizado")
+  };
+
+  mostrarImagen=async(imagen)=>{
+    this.setState({
+      imgModal:this.state.media[imagen],
+      modalVisible:true
+    })
   }
 
   render() {
@@ -120,7 +127,9 @@ export default class GaleriaImagenes extends Component<Props> {
           {
             this.state.vectorImagenes.map((valor)=>{
               return(
-              <View>
+              <View onPress={(valor)=>{
+                this.mostrarImagen(valor)
+              }}>
                 <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
               </View>
               )
