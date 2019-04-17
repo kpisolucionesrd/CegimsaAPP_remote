@@ -115,8 +115,14 @@ export default class GaleriaImagenes extends Component<Props> {
           transparent={false}
           visible={this.state.modalVisible}
         >
-          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
-            <Text>Prueba</Text>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
           </View>
         </Modal>
 
