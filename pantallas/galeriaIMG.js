@@ -104,7 +104,7 @@ export default class GaleriaImagenes extends Component<Props> {
       imgModal:this.state.media[imagen],
       modalVisible:true
     })
-    alert(imagen)
+    alert(this.state.media[imagen])
   }
 
   render() {
@@ -143,7 +143,7 @@ export default class GaleriaImagenes extends Component<Props> {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}>
-          <View style={{marginTop: 22}}>
+          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
             <Image source={this.state.imgModal} style={{width:300,height:300}}/>
           </View>
         </Modal>
