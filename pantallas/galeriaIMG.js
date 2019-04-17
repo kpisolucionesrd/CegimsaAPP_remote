@@ -1,5 +1,5 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View,Modal} from 'react-native';
+import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View,Modal,TouchableHighlight} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
 import { Icon } from 'react-native-elements';
 var RNFS=require('react-native-fs');
