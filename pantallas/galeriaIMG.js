@@ -130,7 +130,7 @@ export default class GaleriaImagenes extends Component<Props> {
               return(
               <View onPress={()=>
                 {
-                  this.mostrarImagen(valor)
+                  alert("prueba")
                 }
               }
                 style={{backgroundColor:'black'}}>
