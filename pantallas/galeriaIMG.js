@@ -34,7 +34,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de las imagenes: eliminar las rutas no validas
       var vectorImagenes=vectorObjetos.filter((valor)=>{
-        return valor!=""
+        return valor!="" && (valor.includes("jpg") || valor.includes("png")
       });
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
@@ -63,7 +63,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de las imagenes: eliminar las rutas no validas y tomar solo las imagenes
       var vectorImagenes=vectorObjetos.filter((valor)=>{
-        return valor!="" && valor.includes("jpg")
+        return valor!="" && (valor.includes("jpg") || valor.includes("png"))
       });
 
 
@@ -232,6 +232,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
           {
             this.state.vectorVideosName.map((valor)=>{
+              if(valor!="videoDefault"){
               return(
                 <TouchableOpacity onPress={()=>
                   {
@@ -246,7 +247,7 @@ export default class GaleriaImagenes extends Component<Props> {
                   onError={this.videoError}
                   style={styles.backgroundVideo}/>
                 </TouchableOpacity>
-              )
+              )}
             })
           }
         </View>
