@@ -249,20 +249,6 @@ export default class GaleriaImagenes extends Component<Props> {
               )
             })
           }
-
-
-
-
-
-
-
-          <Video source={require("../imgs/videoPrueba.mp4")}
-            ref={(ref) => {
-              this.player = ref
-             }}
-            onBuffer={this.onBuffer}
-            onError={this.videoError}
-            style={styles.backgroundVideo}/>
         </View>
       </ScrollView>
     );
