@@ -80,9 +80,9 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes={};
     var counting=1;
 
-    alert("File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
+    alert("File://"+this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
-    objetoImagenes["default"]={uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
+    objetoImagenes["default"]={uri:"File://"+this.state.vectorObjetos2[0]}
 
     this.setState({
       media:objetoImagenes
