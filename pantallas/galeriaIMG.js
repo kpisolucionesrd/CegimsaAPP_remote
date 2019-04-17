@@ -1,6 +1,7 @@
 import React, {Component,PureComponent} from 'react';
 import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
+import { Icon } from 'react-native-elements';
 var RNFS=require('react-native-fs');
 
 type Props = {};
@@ -76,7 +77,7 @@ export default class GaleriaImagenes extends Component<Props> {
       }
   };
 
-  prueba=async()=>{
+  ActualizarGaleria=async()=>{
     var objetoImagenes={};
     var counting=1;
 
@@ -93,42 +94,29 @@ export default class GaleriaImagenes extends Component<Props> {
     })
 
     alert("Actualizado")
-
-    //RNFS.DocumentDirectoryPathRNFS.DocumentDirectoryPath
-    
-    // this.state.vectorObjetos2.forEach(element => {
-    //   objetoImagenes["img"]=require("../imgs/logo.png");
-    //   alert(element);
-    // });
-
-    // await this.state.vectorObjetos2.forEach(img => {
-    //   objetoImagenes["img"+counting]=require(img)
-    // });
-
-    // setTimeout(() => {
-    //   this.setState({
-    //     media:objetoImagenes,
-    //     vectorImagenes:Object.keys(objetoImagenes)
-
-    //   })
-    // }, 2000);
-
-
-    // { this.state.vectorImagenes.map((valor)=>{
-    //   return(<Image source={this.state.media[valor]}/>)
-    //   })
-    // }
   }
 
   render() {
     const imagen={uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
     return (
       <View>
-        <Text onPress={this.prueba}>ACTUAL</Text>
+
+        <TouchableOpacity
+          style={styles.btnMenu}
+          onPress={this.ActualizarGaleria}
+        >
+          <Icon 
+            name="ios-contacts"
+            type="ionicon"
+            color="white"
+            size={60}
+          />
+          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Actualizar</Text>
+        </TouchableOpacity>
 
         {
           this.state.vectorImagenes.map((valor)=>{
-            return(<Image source={this.state.media[valor]} style={{width:100, height:100}}/>)
+            return(<Image source={this.state.media[valor]} style={styles.imgGaleria}/>)
           })
         }
       </View>
@@ -141,6 +129,22 @@ const styles = StyleSheet.create({
       flexWrap:'wrap',
       justifyContent:'space-around',
       alignItems:'center'
+    },
+    btnMenu:{
+      backgroundColor:'rgb(236,73,16)',
+      width:'70%',
+      height:'18%',
+      marginLeft:'auto',
+      marginRight:'auto',
+      alignItems: 'center',
+      paddingTop: 10,
+      marginBottom:'5%',
+      shadowColor:'black',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:15
     },
     imgGaleria:{
       width:100,
