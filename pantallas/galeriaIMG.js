@@ -177,12 +177,12 @@ const styles = StyleSheet.create({
     btnModal:{
       backgroundColor:'rgb(236,73,16)',
       width:'40%',
-      height:'10%',
+      height:'30%',
       marginLeft:'auto',
       marginRight:'auto',
       alignItems: 'center',
-      paddingTop: 10,
-      marginBottom:'5%',
+      paddingTop: 5,
+      marginBottom:5,
       shadowColor:'black',
       shadowOffset:{
         width:5,
