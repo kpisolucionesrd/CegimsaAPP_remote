@@ -115,15 +115,29 @@ export default class GaleriaImagenes extends Component<Props> {
           transparent={false}
           visible={this.state.modalVisible}
         >
-          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
+          <View style={{marginTop: 22}}>
             <View>
-              <Image source={this.state.imgModal} style={{width:400,height:400}}/>
+              <Image source={this.state.imgModal} style={{width:600,height:600,marginLeft:'auto',marginRight:'auto'}}/>
             </View>
+
+          <TouchableOpacity
+            style={styles.btnModal}
+            onPress={this.ActualizarGaleria}
+          >
+            <Icon 
+              name="ios-contacts"
+              type="ionicon"
+              color="white"
+              size={60}
+            />
+            <Text style={{color:'white',fontWeight:'bold',fontSize:30,lineHeight:60}}>CERRAR</Text>
+          </TouchableOpacity>
+
           </View>
         </Modal>
 
         <TouchableOpacity
-          style={styles.btnMenu}
+          style={styles.btnModal}
           onPress={this.ActualizarGaleria}
         >
           <Icon 
@@ -132,7 +146,7 @@ export default class GaleriaImagenes extends Component<Props> {
             color="white"
             size={60}
           />
-          <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Actualizar</Text>
+          <Text style={{color:'white',fontWeight:'bold',fontSize:30,lineHeight:60}}>Actualizar</Text>
         </TouchableOpacity>
         <View style={styles.container}>
           {
@@ -158,10 +172,10 @@ const styles = StyleSheet.create({
       flex:1,
       flexDirection:'row'
     },
-    btnMenu:{
+    btnModal:{
       backgroundColor:'rgb(236,73,16)',
-      width:'70%',
-      height:'18%',
+      width:'40%',
+      height:'10%',
       marginLeft:'auto',
       marginRight:'auto',
       alignItems: 'center',
