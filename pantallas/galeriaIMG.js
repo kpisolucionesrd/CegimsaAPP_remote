@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     btnModal:{
       backgroundColor:'rgb(236,73,16)',
       width:'40%',
-      height:400,
+      height:100,
       marginLeft:'auto',
       marginRight:'auto',
       alignItems: 'center',

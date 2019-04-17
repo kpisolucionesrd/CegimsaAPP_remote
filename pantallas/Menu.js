@@ -95,7 +95,7 @@ export default class Menu extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgb(15,24,130)',
-    height:3000
+    flex:1,
   },
   logoIMG:{
     resizeMode:'contain',
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   btnMenu:{
     backgroundColor:'rgb(236,73,16)',
     width:'70%',
-    height:'18%',
+    height:150,
     marginLeft:'auto',
     marginRight:'auto',
     alignItems: 'center',
