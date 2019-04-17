@@ -44,7 +44,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Concatenacion del path
       var vectorObjetos=result.map((elemento)=>{
-        return "/images/"+elemento
+        return RNFS.DocumentDirectoryPath+"/images/"+elemento
       });
 
       //Filtro de las imagenes: eliminar las rutas no validas
@@ -80,13 +80,15 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes={};
     var counting=1;
 
-    alert("File://"+this.state.vectorObjetos2[0])
+    alert("File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
-    objetoImagenes["default"]={uri:"File://"+this.state.vectorObjetos2[0]}
+    //objetoImagenes["default"]={uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
 
     this.setState({
       media:objetoImagenes
     })
+
+    //RNFS.DocumentDirectoryPathRNFS.DocumentDirectoryPath
     
     // this.state.vectorObjetos2.forEach(element => {
     //   objetoImagenes["img"]=require("../imgs/logo.png");
@@ -115,6 +117,7 @@ export default class GaleriaImagenes extends Component<Props> {
           return(<Image source={this.state.media[valor]}/>)
           })
         }
+        <Image source={{uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
 
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
