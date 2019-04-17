@@ -120,12 +120,12 @@ export default class GaleriaImagenes extends Component<Props> {
   }
 
   render() {
-    const imagen={uri:RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
+    const imagen={uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
     return (
       <View>
        
 
-        <Image source={imagen}/>
+        <Image source={imagen} style={{width:100, height:100}}/>
 
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
