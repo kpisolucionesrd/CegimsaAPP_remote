@@ -14,7 +14,7 @@ export default class GaleriaImagenes extends Component<Props> {
     this.state={
       media:{
         "imagenDefault":require("../imgs/logo.png"),
-        "videoDefault":require("../imgs/videoPrueba.mp4")
+        "videoDefault":require("../imgs/videoPrueba")
       },
       vectorImagenesName:["imagenDefault"],
       vectorVideosName:["videoDefault"],
@@ -232,7 +232,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
           {
             this.state.vectorVideosName.map((valor)=>{
-              if(valor!="videoDefault"){
+              if(valor!="vvideoDefault"){
               return(
                 <TouchableOpacity onPress={()=>
                   {
