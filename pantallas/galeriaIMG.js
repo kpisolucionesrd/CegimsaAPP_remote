@@ -91,6 +91,8 @@ export default class GaleriaImagenes extends Component<Props> {
       media:objetoImagenes
     })
 
+    alert("Actualizado")
+
     //RNFS.DocumentDirectoryPathRNFS.DocumentDirectoryPath
     
     // this.state.vectorObjetos2.forEach(element => {
@@ -125,10 +127,9 @@ export default class GaleriaImagenes extends Component<Props> {
 
         {
           this.state.vectorObjetos2.map((valor)=>{
-            return(<Image source={this.state.media[valor]} style={styles.imgGaleria}/>)
+            return(<Image source={this.state.media[valor]} style={{width:100, height:100}}/>)
           })
         }
-        <Image source={imagen} style={{width:100, height:100}}/>
       </View>
     );
   }
