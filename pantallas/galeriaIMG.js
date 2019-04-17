@@ -115,7 +115,7 @@ export default class GaleriaImagenes extends Component<Props> {
           transparent={false}
           visible={this.state.modalVisible}
         >
-          <View style={{marginTop: 22}}>
+          <ScrollView style={{marginTop: 22}}>
             <View>
               <Image source={this.state.imgModal} style={{width:'100%',height:'90%',marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
             </View>
@@ -136,7 +136,7 @@ export default class GaleriaImagenes extends Component<Props> {
             />
           </TouchableOpacity>
 
-          </View>
+          </ScrollView>
         </Modal>
 
         <TouchableOpacity
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
       marginRight:'auto',
       alignItems: 'center',
       paddingTop: 5,
-      marginBottom:5,
+      marginBottom:'5%',
       shadowColor:'black',
       shadowOffset:{
         width:5,
