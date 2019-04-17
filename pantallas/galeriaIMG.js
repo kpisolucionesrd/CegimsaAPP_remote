@@ -2,6 +2,7 @@ import React, {Component,PureComponent} from 'react';
 import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View,Modal,TouchableHighlight} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
 import { Icon } from 'react-native-elements';
+import Video from 'react-native-video';
 var RNFS=require('react-native-fs');
 
 type Props = {};
@@ -154,16 +155,23 @@ export default class GaleriaImagenes extends Component<Props> {
           {
             this.state.vectorImagenes.map((valor)=>{
               return(
-              <TouchableOpacity onPress={()=>
-                {
-                  this.mostrarImagen(valor)
-                }
-              }>
+                <TouchableOpacity onPress={()=>
+                  {
+                    this.mostrarImagen(valor)
+                  }
+                }>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
-              </TouchableOpacity>
+                </TouchableOpacity>
               )
             })
           }
+          <Video source={require("../imgs/videoPrueba.mp4")}
+            ref={(ref) => {
+              this.player = ref
+             }}
+            onBuffer={this.onBuffer}
+            onError={this.videoError}
+            style={styles.backgroundVideo}/>
         </View>
       </ScrollView>
     );
