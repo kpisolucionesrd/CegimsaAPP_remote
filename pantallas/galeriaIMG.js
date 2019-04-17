@@ -84,7 +84,7 @@ export default class GaleriaImagenes extends Component<Props> {
     //alert("file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
     
     await this.state.vectorObjetos2.forEach((imagen)=>{
-      objetoImagenes["img"+1]={uri:"File://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
+      objetoImagenes["img"+1]={uri:"File://"+RNFS.DocumentDirectoryPath+imagen}
     });
     
 
