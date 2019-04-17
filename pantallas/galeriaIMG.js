@@ -114,19 +114,21 @@ export default class GaleriaImagenes extends Component<Props> {
           />
           <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Actualizar</Text>
         </TouchableOpacity>
-
-        {
-          this.state.vectorImagenes.map((valor)=>{
-            return(<Image source={this.state.media[valor]} style={styles.imgGaleria}/>)
-          })
-        }
+        <View style={styles.container}>
+          {
+            this.state.vectorImagenes.map((valor)=>{
+              return(<Image source={this.state.media[valor]} style={styles.imgGaleria}/>)
+            })
+          }
+        </View>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
     container: {
-      flexDirection:'row',
+      flex:1,
+      flexDirection:'column',
       flexWrap:'wrap',
     },
     btnMenu:{
