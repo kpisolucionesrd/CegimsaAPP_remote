@@ -34,7 +34,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de las imagenes: eliminar las rutas no validas
       var vectorImagenes=vectorObjetos.filter((valor)=>{
-        return valor!="" && (valor.includes("jpg") || valor.includes("png"))
+        return valor!="" && (valor.includes("jpg"))
       });
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
