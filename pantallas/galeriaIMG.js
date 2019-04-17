@@ -117,7 +117,7 @@ export default class GaleriaImagenes extends Component<Props> {
           return(<Image source={this.state.media[valor]}/>)
           })
         }
-        <Image source={{uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
+        <Image source={{uri:RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}}/>
 
         <Text onPress={this.prueba}>ACTUAL</Text>
       </View>
