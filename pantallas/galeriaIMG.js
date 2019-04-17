@@ -117,12 +117,16 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <View style={{marginTop: 22}}>
             <View>
-              <Image source={this.state.imgModal} style={{width:'100%',marginLeft:'auto',marginRight:'auto',marginBottom:20}}/>
+              <Image source={this.state.imgModal} style={{width:'100%',height:'100%',marginLeft:'auto',marginRight:'auto',marginBottom:20}}/>
             </View>
 
           <TouchableOpacity
             style={styles.btnModal}
-            onPress={this.ActualizarGaleria}
+            onPress={()=>{
+              this.setState({
+                modalVisible:false
+              })
+            }}
           >
             <Icon 
               name="ios-contacts"
