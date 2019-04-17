@@ -117,7 +117,7 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <View style={{marginTop: 22}}>
             <View>
-              <Image source={this.state.imgModal} style={{width:'100%',height:'80%',marginLeft:'auto',marginRight:'auto',marginBottom:20}}/>
+              <Image source={this.state.imgModal} style={{width:'100%',height:'90%',marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
             </View>
 
           <TouchableOpacity
@@ -129,12 +129,11 @@ export default class GaleriaImagenes extends Component<Props> {
             }}
           >
             <Icon 
-              name="ios-contacts"
+              name="ios-close-circle"
               type="ionicon"
               color="white"
               size={60}
             />
-            <Text style={{color:'white',fontWeight:'bold',fontSize:30,lineHeight:60}}>CERRAR</Text>
           </TouchableOpacity>
 
           </View>
@@ -145,12 +144,11 @@ export default class GaleriaImagenes extends Component<Props> {
           onPress={this.ActualizarGaleria}
         >
           <Icon 
-            name="ios-contacts"
+            name="ios-refresh-circle"
             type="ionicon"
             color="white"
             size={60}
           />
-          <Text style={{color:'white',fontWeight:'bold',fontSize:30,lineHeight:60}}>Actualizar</Text>
         </TouchableOpacity>
         <View style={styles.container}>
           {
