@@ -21,7 +21,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Concatenacion del path
       var vectorObjetos=result.map((elemento)=>{
-        return RNFS.DocumentDirectoryPath+"/images/"+elemento
+        return "/images/"+elemento
       });
 
       //Filtro de las imagenes: eliminar las rutas no validas
@@ -80,9 +80,9 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes={};
     var counting=1;
 
-    alert(this.state.vectorObjetos2[0])
+    alert(RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
     //"../imgs/logo.png"
-    objetoImagenes["default"]={uri:"file://"+this.state.vectorObjetos2[0]}
+    objetoImagenes["default"]={uri:RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
 
     this.setState({
       media:objetoImagenes
