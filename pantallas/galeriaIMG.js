@@ -104,7 +104,7 @@ export default class GaleriaImagenes extends Component<Props> {
       imgModal:this.state.media[imagen],
       modalVisible:true
     })
-    alert(this.state.media[imagen])
+    alert(JSON.stringify(this.state.media[imagen]))
   }
 
   render() {
