@@ -14,7 +14,7 @@ export default class GaleriaImagenes extends Component<Props> {
     this.state={
       media:{
         "imagenDefault":require("../imgs/logo.png"),
-        "videoDefault":require("../imgs/videoPrueba.mp4")
+        "videoDefault":require("../imgs/videoPrueba.mov")
       },
       vectorImagenesName:["imagenDefault"],
       vectorVideosName:["videoDefault"],
@@ -113,6 +113,8 @@ export default class GaleriaImagenes extends Component<Props> {
       counting=counting+1
     });
 
+
+
     this.setState({
       media:objetoImagenes,
       vectorImagenesName:Object.keys(objetoImagenes)
@@ -127,7 +129,6 @@ export default class GaleriaImagenes extends Component<Props> {
       modalVisible:true
     })
   }
-
 
   mostrarVideo=async(video)=>{
     this.setState({
@@ -218,7 +219,7 @@ export default class GaleriaImagenes extends Component<Props> {
         <View style={styles.container}>
           {
             this.state.vectorImagenesName.map((valor)=>{
-              if(valor!="imagenDefault"){
+              if(valor!="iimagenDefault"){
               return(
                 <TouchableOpacity onPress={()=>
                   {
@@ -233,7 +234,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
           {
             this.state.vectorVideosName.map((valor)=>{
-              if(valor!="videoDefault"){
+              if(valor!="vvideoDefault"){
               return(
                 <TouchableOpacity onPress={()=>
                   {
