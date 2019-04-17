@@ -130,7 +130,7 @@ export default class GaleriaImagenes extends Component<Props> {
               return(
               <View onPress={(valor)=>{
                 this.mostrarImagen(valor)
-              }}>
+              }} style={{backgroundColor:'black'}}>
                 <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
               </View>
               )
