@@ -115,9 +115,9 @@ export default class GaleriaImagenes extends Component<Props> {
           transparent={false}
           visible={this.state.modalVisible}
         >
-          <View style={{marginTop: 22}}>
+          <ScrollView style={{marginTop: 22}}>
             <View>
-              <Image source={this.state.imgModal} style={{width:'100%',height:'100%',marginLeft:'auto',marginRight:'auto',marginBottom:20}}/>
+              <Image source={this.state.imgModal} style={{width:'100%',height:'90%',marginLeft:'auto',marginRight:'auto',marginBottom:20}}/>
             </View>
 
           <TouchableOpacity
@@ -137,7 +137,7 @@ export default class GaleriaImagenes extends Component<Props> {
             <Text style={{color:'white',fontWeight:'bold',fontSize:30,lineHeight:60}}>CERRAR</Text>
           </TouchableOpacity>
 
-          </View>
+          </ScrollView>
         </Modal>
 
         <TouchableOpacity
