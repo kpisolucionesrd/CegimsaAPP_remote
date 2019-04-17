@@ -16,6 +16,7 @@ export default class GaleriaImagenes extends Component<Props> {
       },
       vectorImagenes:["default"],
       vectorObjetos2:["../imgs/logo.png"],
+      modalVisible:false,
       imgModal:require("../imgs/logo.png")
     }
 
@@ -37,12 +38,6 @@ export default class GaleriaImagenes extends Component<Props> {
     });
   }
   
-
-  state={
-    modalVisible:false
-  }
-
-
   static navigationOptions = {
     title: 'Galeria Imagenes',
   };
@@ -148,7 +143,9 @@ export default class GaleriaImagenes extends Component<Props> {
           transparent={false}
           visible={this.state.modalVisible}
         >
-        <Text>Prueba Modal</Text>
+          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
+            <Text>Prueba</Text>
+          </View>
         </Modal>
       </ScrollView>
     );
