@@ -181,7 +181,7 @@ export default class GaleriaImagenes extends Component<Props> {
                   }}
                   onBuffer={this.onBuffer}
                   onError={this.videoError}
-                  style={styles.backgroundVideo}/>
+                  style={{width:'100%',height:700,marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
             </View>
 
           <TouchableOpacity
