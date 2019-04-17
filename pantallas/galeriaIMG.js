@@ -128,8 +128,6 @@ const styles = StyleSheet.create({
     container: {
       flexDirection:'row',
       flexWrap:'wrap',
-      justifyContent:'space-around',
-      alignItems:'center'
     },
     btnMenu:{
       backgroundColor:'rgb(236,73,16)',
