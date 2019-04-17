@@ -69,7 +69,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
       var vectorVideos=vectorObjetos.filter((valor)=>{
-        return valor!="" && valor.includes("mp4")
+        return valor!="" && (valor.includes("mp4") || valor.includes("MOV") || valor.includes("mov"))
       });
 
       this.setState({
