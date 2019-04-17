@@ -13,12 +13,16 @@ export default class GaleriaImagenes extends Component<Props> {
 
     this.state={
       media:{
-        "default":require("../imgs/logo.png")
+        "imagenDefault":require("../imgs/logo.png"),
+        "videoDefault":require("../imgs/videoPrueba.mp4")
       },
-      vectorImagenes:["default"],
-      vectorObjetos2:["../imgs/logo.png"],
+      vectorImagenesName:["imagenDefault"],
+      vectorVideosName:["videoDefault"],
+      vectorImagenes:["../imgs/logo.png"],
       modalVisible:false,
-      imgModal:require("../imgs/logo.png")
+      modalVisibleVideo:false,
+      imgModal:require("../imgs/logo.png"),
+      videoModal:require("../imgs/videoPrueba.mp4")
     }
 
     this.Initialsconfigurations().then(result=>{
@@ -29,12 +33,18 @@ export default class GaleriaImagenes extends Component<Props> {
       });
 
       //Filtro de las imagenes: eliminar las rutas no validas
-      var vectorObjetos2=vectorObjetos.filter((valor)=>{
+      var vectorImagenes=vectorObjetos.filter((valor)=>{
         return valor!=""
       });
 
+      //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
+      var vectorVideos=vectorObjetos.filter((valor)=>{
+        return valor!="" && valor.includes("mp4")
+      });
+
       this.setState({
-        vectorObjetos2:vectorObjetos2
+        vectorImagenes:vectorImagenes,
+        vectorVideos:vectorVideos
       });
     });
   }
@@ -51,13 +61,20 @@ export default class GaleriaImagenes extends Component<Props> {
         return "/images/"+elemento
       });
 
-      //Filtro de las imagenes: eliminar las rutas no validas
-      var vectorObjetos2=vectorObjetos.filter((valor)=>{
-        return valor!=""
+      //Filtro de las imagenes: eliminar las rutas no validas y tomar solo las imagenes
+      var vectorImagenes=vectorObjetos.filter((valor)=>{
+        return valor!="" && valor.includes("jpg")
+      });
+
+
+      //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
+      var vectorVideos=vectorObjetos.filter((valor)=>{
+        return valor!="" && valor.includes("mp4")
       });
 
       this.setState({
-        vectorObjetos2:vectorObjetos2
+        vectorImagenes:vectorImagenes,
+        vectorVideos:vectorVideos
       });
     });
   };
@@ -84,17 +101,21 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes={};
     var counting=1;
 
-    //alert("file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0])
-    
-    await this.state.vectorObjetos2.forEach(async (imagen)=>{
+    //IMAGENES
+    await this.state.vectorImagenes.forEach(async (imagen)=>{
       objetoImagenes["img"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+imagen}
       counting=counting+1
     });
-    
+
+    //VIDEOS
+    await this.state.vectorVideos.forEach(async (video)=>{
+      objetoImagenes["vid"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+video}
+      counting=counting+1
+    });
 
     this.setState({
       media:objetoImagenes,
-      vectorImagenes:Object.keys(objetoImagenes)
+      vectorImagenesName:Object.keys(objetoImagenes)
     })
 
     alert("Actualizado")
@@ -107,8 +128,15 @@ export default class GaleriaImagenes extends Component<Props> {
     })
   }
 
+
+  mostrarVideo=async(video)=>{
+    this.setState({
+      videoModal:this.state.media[video],
+      modalVisibleVideo:true
+    })
+  }
+
   render() {
-    const imagen={uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
     return (
       <ScrollView>
         <Modal
@@ -140,6 +168,42 @@ export default class GaleriaImagenes extends Component<Props> {
           </ScrollView>
         </Modal>
 
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisibleVideo}
+        >
+          <ScrollView style={{marginTop: 22}}>
+            <View>
+            <Video source={this.state.videoModal}
+                  ref={(ref) => {
+                    this.player = ref
+                  }}
+                  onBuffer={this.onBuffer}
+                  onError={this.videoError}
+                  style={styles.backgroundVideo}/>
+            </View>
+
+          <TouchableOpacity
+            style={styles.btnModal}
+            onPress={()=>{
+              this.setState({
+                modalVisibleVideo:false
+              })
+            }}
+          >
+            <Icon 
+              name="ios-close-circle"
+              type="ionicon"
+              color="white"
+              size={60}
+            />
+          </TouchableOpacity>
+
+          </ScrollView>
+        </Modal>
+
+
         <TouchableOpacity
           style={styles.btnModal}
           onPress={this.ActualizarGaleria}
@@ -153,7 +217,7 @@ export default class GaleriaImagenes extends Component<Props> {
         </TouchableOpacity>
         <View style={styles.container}>
           {
-            this.state.vectorImagenes.map((valor)=>{
+            this.state.vectorImagenesName.map((valor)=>{
               return(
                 <TouchableOpacity onPress={()=>
                   {
@@ -165,6 +229,33 @@ export default class GaleriaImagenes extends Component<Props> {
               )
             })
           }
+
+          {
+            this.state.vectorVideosName.map((valor)=>{
+              return(
+                <TouchableOpacity onPress={()=>
+                  {
+                    this.mostrarVideo(valor)
+                  }
+                }>
+                <Video source={this.state.media[valor]}
+                  ref={(ref) => {
+                    this.player = ref
+                  }}
+                  onBuffer={this.onBuffer}
+                  onError={this.videoError}
+                  style={styles.backgroundVideo}/>
+                </TouchableOpacity>
+              )
+            })
+          }
+
+
+
+
+
+
+
           <Video source={require("../imgs/videoPrueba.mp4")}
             ref={(ref) => {
               this.player = ref
