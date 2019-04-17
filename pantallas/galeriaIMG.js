@@ -13,7 +13,9 @@ export default class GaleriaImagenes extends Component<Props> {
 
     this.state={
       media:{
-        "imagenDefault":require("../imgs/logo.png"),
+        "imagenDefault":require("../imgs/logo.png")
+      },
+      mediaVideos:{
         "videoDefault":require("../imgs/videoPrueba.mov")
       },
       vectorImagenesName:["imagenDefault"],
@@ -99,6 +101,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
   ActualizarGaleria=async()=>{
     var objetoImagenes={};
+    var objetoVideos={};
     var counting=1;
 
     //IMAGENES
@@ -109,7 +112,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
     //VIDEOS
     await this.state.vectorVideos.forEach(async (video)=>{
-      objetoImagenes["vid"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+video}
+      objetoVideos["vid"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+video}
       counting=counting+1
     });
 
@@ -117,6 +120,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
     this.setState({
       media:objetoImagenes,
+      mediaVideos:objetoVideos,
       vectorImagenesName:Object.keys(objetoImagenes)
     })
 
@@ -241,7 +245,7 @@ export default class GaleriaImagenes extends Component<Props> {
                     this.mostrarVideo(valor)
                   }
                 }>
-                <Video source={this.state.media[valor]}
+                <Video source={this.state.mediaVideos[valor]}
                   ref={(ref) => {
                     this.player = ref
                   }}
