@@ -110,6 +110,15 @@ export default class GaleriaImagenes extends Component<Props> {
     const imagen={uri:"file://"+RNFS.DocumentDirectoryPath+this.state.vectorObjetos2[0]}
     return (
       <ScrollView>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+        >
+          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
+            <Text>Prueba</Text>
+          </View>
+        </Modal>
 
         <TouchableOpacity
           style={styles.btnMenu}
@@ -138,15 +147,6 @@ export default class GaleriaImagenes extends Component<Props> {
             })
           }
         </View>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-        >
-          <View style={{marginTop: 22}} style={{backgroundColor:'black'}}>
-            <Text>Prueba</Text>
-          </View>
-        </Modal>
       </ScrollView>
     );
   }
