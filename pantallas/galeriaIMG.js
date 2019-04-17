@@ -41,7 +41,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
       var vectorVideos=vectorObjetos.filter((valor)=>{
-        return valor!="" && (valor.includes("mp4") || valor.includes("MOV") || valor.includes("mov"))
+        return valor.includes("MOV")
       });
 
       this.setState({
@@ -71,7 +71,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
       var vectorVideos=vectorObjetos.filter((valor)=>{
-        return valor!="" && (valor.includes("mp4") || valor.includes("MOV") || valor.includes("mov"))
+        return valor.includes("MOV")
       });
 
       this.setState({
@@ -121,7 +121,8 @@ export default class GaleriaImagenes extends Component<Props> {
     this.setState({
       media:objetoImagenes,
       mediaVideos:objetoVideos,
-      vectorImagenesName:Object.keys(objetoImagenes)
+      vectorImagenesName:Object.keys(objetoImagenes),
+      vectorVideosName:Object.keys(objetoVideos)
     })
 
     alert("Actualizado")
@@ -136,7 +137,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
   mostrarVideo=async(video)=>{
     this.setState({
-      videoModal:this.state.media[video],
+      videoModal:this.state.mediaVideos[video],
       modalVisibleVideo:true
     })
   }
