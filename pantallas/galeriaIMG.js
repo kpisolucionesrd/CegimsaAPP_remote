@@ -128,7 +128,11 @@ export default class GaleriaImagenes extends Component<Props> {
           {
             this.state.vectorImagenes.map((valor)=>{
               return(
-              <View onPress={this.mostrarImagen(valor)}
+              <View onPress={()=>
+                {
+                  this.mostrarImagen(valor)
+                }
+              }
                 style={{backgroundColor:'black'}}>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
               </View>
