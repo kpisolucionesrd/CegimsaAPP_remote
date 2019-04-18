@@ -116,8 +116,6 @@ export default class GaleriaImagenes extends Component<Props> {
       counting=counting+1
     });
 
-
-
     this.setState({
       media:objetoImagenes,
       mediaVideos:objetoVideos,
