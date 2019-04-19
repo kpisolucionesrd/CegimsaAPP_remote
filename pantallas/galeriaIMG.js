@@ -21,6 +21,7 @@ export default class GaleriaImagenes extends Component<Props> {
       vectorImagenesName:["imagenDefault"],
       vectorVideosName:["videoDefault"],
       vectorImagenes:["../imgs/logo.png"],
+      vectorVideos:["../imgs/videoPrueba.mov"],
       modalVisible:false,
       modalVisibleVideo:false,
       imgModal:require("../imgs/logo.png"),
@@ -41,13 +42,22 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
       var vectorVideos=vectorObjetos.filter((valor)=>{
-        return valor.includes("MOV")
+        return (valor.includes(".MOV") || valor.includes(".mov"))
       });
+      
+      //Estado Imagenes
+      if(vectorImagenes.length>0){
+        this.setState({
+          vectorImagenes:vectorImagenes
+        })
+      }
 
-      this.setState({
-        vectorImagenes:vectorImagenes,
-        vectorVideos:vectorVideos
-      });
+      //Estado Videos
+      if(vectorVideos.length>0){
+        this.setState({
+          vectorVideos:vectorVideos
+        })
+      }
     });
   }
   
@@ -71,13 +81,23 @@ export default class GaleriaImagenes extends Component<Props> {
 
       //Filtro de los videos: eliminar las rutas no validas y tomar solo los videos
       var vectorVideos=vectorObjetos.filter((valor)=>{
-        return valor.includes("MOV")
+        return (valor.includes(".MOV") || valor.includes(".mov"))
       });
 
-      this.setState({
-        vectorImagenes:vectorImagenes,
-        vectorVideos:vectorVideos
-      });
+
+      //Estado Imagenes
+      if(vectorImagenes.length>0){
+        this.setState({
+          vectorImagenes:vectorImagenes
+        })
+      }
+
+      //Estado Videos
+      if(vectorVideos.length>0){
+        this.setState({
+          vectorVideos:vectorVideos
+        })
+      }
     });
   };
 
@@ -101,7 +121,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
   ActualizarGaleria=async()=>{
     var objetoImagenes={};
-    var objetoVideos={};
+    var objetoVideos={"videoDefault":require("../imgs/videoPrueba.mov")};
     var counting=1;
 
     //IMAGENES
@@ -112,7 +132,9 @@ export default class GaleriaImagenes extends Component<Props> {
 
     //VIDEOS
     await this.state.vectorVideos.forEach(async (video)=>{
-      objetoVideos["vid"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+video}
+      if(video!="../imgs/videoPrueba.mov"){
+        objetoVideos["vid"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+video}
+      }
       counting=counting+1
     });
 
@@ -123,8 +145,12 @@ export default class GaleriaImagenes extends Component<Props> {
       vectorVideosName:Object.keys(objetoVideos)
     })
 
-    alert("Actualizado")
+    alert("Actualizar")
   };
+
+  prueba=async()=>{
+    alert(this.state.vectorVideos)
+  }
 
   mostrarImagen=async(imagen)=>{
     this.setState({
@@ -210,6 +236,13 @@ export default class GaleriaImagenes extends Component<Props> {
 
         <TouchableOpacity
           style={styles.btnModal}
+          onPress={this.prueba}
+        >
+          <Text>Ver Vector Videos</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.btnModal}
           onPress={this.ActualizarGaleria}
         >
           <Icon 
@@ -219,6 +252,8 @@ export default class GaleriaImagenes extends Component<Props> {
             size={60}
           />
         </TouchableOpacity>
+
+
         <View style={styles.container}>
           {
             this.state.vectorImagenesName.map((valor)=>{

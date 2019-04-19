@@ -19,10 +19,6 @@ export default class Jugadores extends Component<Props> {
       });
   }
   
-  async componentDidUpdate(prevProps) {
-    console.log("prueba");
-  }
-
   static navigationOptions = {
     title: 'Seleccionar Jugador',
   };
