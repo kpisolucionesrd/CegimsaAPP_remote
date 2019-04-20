@@ -173,7 +173,7 @@ export default class GaleriaImagenes extends Component<Props> {
             <View>
             <ImageZoom cropWidth={Dimensions.get('window').width}
                        cropHeight={Dimensions.get('window').height}
-                       imageWidth={'100%'}
+                       imageWidth={1500}
                        imageHeight={1500}>
             </ImageZoom>
             </View>
