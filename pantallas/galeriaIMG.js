@@ -100,7 +100,30 @@ export default class GaleriaImagenes extends Component<Props> {
       }
     });
 
-    await this.ActualizarGaleria()
+    var objetoImagenes={};
+    var objetoVideos={};
+    var counting=1;
+
+    //IMAGENES
+    await this.state.vectorImagenes.forEach(async (imagen)=>{
+      objetoImagenes["img"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+imagen}
+      counting=counting+1
+    });
+
+    //VIDEOS
+    await this.state.vectorVideos.forEach(async (video)=>{
+      if(video!="../imgs/videoPrueba.mov"){
+        objetoVideos["vid"+counting]=await {uri:RNFS.DocumentDirectoryPath+video}
+      }
+      counting=counting+1
+    });
+
+    await this.setState({
+      media:await objetoImagenes,
+      mediaVideos:await objetoVideos,
+      vectorImagenesName:await Object.keys(objetoImagenes),
+      vectorVideosName:await Object.keys(objetoVideos)
+    });
   };
 
   /* Configuraciones Iniciales */
@@ -147,10 +170,6 @@ export default class GaleriaImagenes extends Component<Props> {
       vectorVideosName:await Object.keys(objetoVideos)
     });
   };
-
-  prueba=async()=>{
-    alert(JSON.stringify(this.state.mediaVideos))
-  }
 
   mostrarImagen=async(imagen)=>{
     this.setState({
@@ -232,14 +251,6 @@ export default class GaleriaImagenes extends Component<Props> {
 
           </ScrollView>
         </Modal>
-
-
-        <TouchableOpacity
-          style={styles.btnModal}
-          onPress={this.prueba}
-        >
-          <Text>Ver Vector Videos</Text>
-        </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.btnModal}
