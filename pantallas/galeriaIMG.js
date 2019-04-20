@@ -121,7 +121,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
   ActualizarGaleria=async()=>{
     var objetoImagenes={};
-    var objetoVideos={"videoDefault":require("../imgs/videoPrueba.mov")};
+    var objetoVideos={};
     var counting=1;
 
     //IMAGENES
