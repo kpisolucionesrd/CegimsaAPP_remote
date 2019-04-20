@@ -99,6 +99,8 @@ export default class GaleriaImagenes extends Component<Props> {
         })
       }
     });
+
+    await this.ActualizarGaleria()
   };
 
   /* Configuraciones Iniciales */
@@ -143,9 +145,7 @@ export default class GaleriaImagenes extends Component<Props> {
       mediaVideos:await objetoVideos,
       vectorImagenesName:await Object.keys(objetoImagenes),
       vectorVideosName:await Object.keys(objetoVideos)
-    })
-
-    alert("Actualizar")
+    });
   };
 
   prueba=async()=>{
@@ -257,7 +257,7 @@ export default class GaleriaImagenes extends Component<Props> {
         <View style={styles.container}>
           {
             this.state.vectorImagenesName.map((valor)=>{
-              if(valor!="iimagenDefault"){
+              if(valor!="imagenDefault"){
               return(
                 <TouchableOpacity onPress={()=>
                   {
@@ -271,7 +271,6 @@ export default class GaleriaImagenes extends Component<Props> {
           }
           {
             this.state.vectorVideosName.map((valor)=>{
-              alert(valor)
               if(valor!="videoDefault"){
               return(
                 <TouchableOpacity onPress={()=>
