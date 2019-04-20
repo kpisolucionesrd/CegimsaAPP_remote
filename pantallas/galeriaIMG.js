@@ -133,7 +133,7 @@ export default class GaleriaImagenes extends Component<Props> {
     //VIDEOS
     await this.state.vectorVideos.forEach(async (video)=>{
       if(video!="../imgs/videoPrueba.mov"){
-        objetoVideos["vid"+counting]=await {uri:+RNFS.DocumentDirectoryPath+video}
+        objetoVideos["vid"+counting]=await {uri:RNFS.DocumentDirectoryPath+video}
       }
       counting=counting+1
     });
