@@ -133,7 +133,7 @@ export default class GaleriaImagenes extends Component<Props> {
     //VIDEOS
     await this.state.vectorVideos.forEach(async (video)=>{
       if(video!="../imgs/videoPrueba.mov"){
-        objetoVideos["vid"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+video}
+        objetoVideos["vid"+counting]=await {uri:+RNFS.DocumentDirectoryPath+video}
       }
       counting=counting+1
     });
@@ -149,7 +149,7 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   prueba=async()=>{
-    alert(JSON.stringify(this.state.vectorVideosName))
+    alert(JSON.stringify(this.state.mediaVideos))
   }
 
   mostrarImagen=async(imagen)=>{
@@ -265,27 +265,6 @@ export default class GaleriaImagenes extends Component<Props> {
                   }
                 }>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
-                </TouchableOpacity>
-              )}
-            })
-          }
-          {
-            this.state.vectorVideosName.map((valor)=>{
-              alert(valor)
-              if(valor!="videoDefault"){
-              return(
-                <TouchableOpacity onPress={()=>
-                  {
-                    this.mostrarVideo(valor)
-                  }
-                }>
-                <Video source={this.state.mediaVideos[valor]}
-                  ref={(ref) => {
-                    this.player = ref
-                  }}
-                  onBuffer={this.onBuffer}
-                  onError={this.videoError}
-                  style={styles.backgroundVideo}/>
                 </TouchableOpacity>
               )}
             })
