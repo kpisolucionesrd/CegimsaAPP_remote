@@ -1,6 +1,7 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,View,Modal,TouchableHighlight} from 'react-native';
+import {Platform,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,Dimensions} from 'react-native';
 import PhotoBrowser from 'react-native-photo-browser';
+import ImageZoom from 'react-native-image-pan-zoom';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
 var RNFS=require('react-native-fs');
@@ -170,7 +171,12 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <ScrollView style={{marginTop: 22}}>
             <View>
+            <ImageZoom cropWidth={Dimensions.get('window').width}
+                       cropHeight={Dimensions.get('window').height}
+                       imageWidth={'100%'}
+                       imageHeight={1500}>
               <Image source={this.state.imgModal} style={{width:'100%',height:1500,marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
+            </ImageZoom>
             </View>
 
           <TouchableOpacity
