@@ -139,8 +139,8 @@ export default class GaleriaImagenes extends Component<Props> {
     });
 
     await this.setState({
-      media:objetoImagenes,
-      mediaVideos:objetoVideos,
+      media:await objetoImagenes,
+      mediaVideos:await objetoVideos,
       vectorImagenesName:await Object.keys(objetoImagenes),
       vectorVideosName:await Object.keys(objetoVideos)
     })
@@ -265,6 +265,27 @@ export default class GaleriaImagenes extends Component<Props> {
                   }
                 }>
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
+                </TouchableOpacity>
+              )}
+            })
+          }
+          {
+            this.state.vectorVideosName.map((valor)=>{
+              alert(valor)
+              if(valor!="videoDefault"){
+              return(
+                <TouchableOpacity onPress={()=>
+                  {
+                    this.mostrarVideo(valor)
+                  }
+                }>
+                <Video source={this.state.mediaVideos[valor]}
+                  ref={(ref) => {
+                    this.player = ref
+                  }}
+                  onBuffer={this.onBuffer}
+                  onError={this.videoError}
+                  style={styles.backgroundVideo}/>
                 </TouchableOpacity>
               )}
             })
