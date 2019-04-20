@@ -99,31 +99,6 @@ export default class GaleriaImagenes extends Component<Props> {
         })
       }
     });
-
-    var objetoImagenes={};
-    var objetoVideos={};
-    var counting=1;
-
-    //IMAGENES
-    await this.state.vectorImagenes.forEach(async (imagen)=>{
-      objetoImagenes["img"+counting]=await {uri:"File://"+RNFS.DocumentDirectoryPath+imagen}
-      counting=counting+1
-    });
-
-    //VIDEOS
-    await this.state.vectorVideos.forEach(async (video)=>{
-      if(video!="../imgs/videoPrueba.mov"){
-        objetoVideos["vid"+counting]=await {uri:RNFS.DocumentDirectoryPath+video}
-      }
-      counting=counting+1
-    });
-
-    await this.setState({
-      media:await objetoImagenes,
-      mediaVideos:await objetoVideos,
-      vectorImagenesName:await Object.keys(objetoImagenes),
-      vectorVideosName:await Object.keys(objetoVideos)
-    });
   };
 
   /* Configuraciones Iniciales */
