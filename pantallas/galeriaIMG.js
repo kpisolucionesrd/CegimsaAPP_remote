@@ -270,27 +270,6 @@ export default class GaleriaImagenes extends Component<Props> {
             })
           }
 
-          {
-            this.state.vectorVideosName.map((valor)=>{
-              if(valor!="videoDefault"){
-              return(
-                <TouchableOpacity onPress={()=>
-                  {
-                    this.mostrarVideo(valor)
-                  }
-                }>
-                <Video source={this.state.mediaVideos[valor]}
-                  ref={(ref) => {
-                    this.player = ref
-                  }}
-                  onBuffer={this.onBuffer}
-                  onError={this.videoError}
-                  style={styles.backgroundVideo}/>
-                </TouchableOpacity>
-              )}
-            })
-          }
-
         </View>
       </ScrollView>
     );
