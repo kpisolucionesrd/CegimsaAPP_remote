@@ -149,7 +149,7 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   prueba=async()=>{
-    alert(this.state.vectorVideos)
+    alert(JSON.stringify(this.state.objetoVideos))
   }
 
   mostrarImagen=async(imagen)=>{
