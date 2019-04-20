@@ -171,7 +171,11 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <ScrollView style={{marginTop: 22}}>
             <View>
-              <Image source={this.state.imgModal} style={{width:'100%',height:1500,marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
+            <ImageZoom cropWidth={Dimensions.get('window').width}
+                       cropHeight={Dimensions.get('window').height}
+                       imageWidth={'100%'}
+                       imageHeight={1500}>
+            </ImageZoom>
             </View>
 
           <TouchableOpacity
