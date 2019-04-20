@@ -173,8 +173,9 @@ export default class GaleriaImagenes extends Component<Props> {
             <View>
             <ImageZoom cropWidth={Dimensions.get('window').width}
                        cropHeight={Dimensions.get('window').height}
-                       imageWidth={1500}
+                       imageWidth={'100%'}
                        imageHeight={1500}>
+              <Image source={this.state.imgModal} style={{width:'100%',height:1500,marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
             </ImageZoom>
             </View>
 
