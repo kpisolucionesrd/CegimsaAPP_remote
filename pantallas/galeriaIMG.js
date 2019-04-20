@@ -141,15 +141,15 @@ export default class GaleriaImagenes extends Component<Props> {
     await this.setState({
       media:objetoImagenes,
       mediaVideos:objetoVideos,
-      vectorImagenesName:Object.keys(objetoImagenes),
-      vectorVideosName:Object.keys(objetoVideos)
+      vectorImagenesName:await Object.keys(objetoImagenes),
+      vectorVideosName:await Object.keys(objetoVideos)
     })
 
     alert("Actualizar")
   };
 
   prueba=async()=>{
-    alert(JSON.stringify(this.state.mediaVideos))
+    alert(JSON.stringify(this.state.vectorVideosName))
   }
 
   mostrarImagen=async(imagen)=>{
