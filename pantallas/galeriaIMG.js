@@ -176,9 +176,8 @@ export default class GaleriaImagenes extends Component<Props> {
               source={this.state.imgModal}
               minimumZoomScale={0.5}
               maximumZoomScale={3}
-              androidScaleType="center"
               onLoad={() => console.log("Image loaded!")}
-              style={{width: '100%', height: 1500}} />
+              style={{width:800, height: 1500,marginBottom:20}} />
             </View>
 
           <TouchableOpacity
