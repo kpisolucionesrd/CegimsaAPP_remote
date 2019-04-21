@@ -66,7 +66,7 @@ export default class GaleriaImagenes extends Component<Props> {
   };
 
   async componentDidMount(){
-    this.Initialsconfigurations().then(result=>{
+    await this.Initialsconfigurations().then(result=>{
 
       //Concatenacion del path
       var vectorObjetos=result.map((elemento)=>{
@@ -99,6 +99,7 @@ export default class GaleriaImagenes extends Component<Props> {
         })
       }
     });
+    await this.ActualizarGaleria();
   };
 
   /* Configuraciones Iniciales */
