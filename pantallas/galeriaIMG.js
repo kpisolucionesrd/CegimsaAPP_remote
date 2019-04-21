@@ -167,7 +167,6 @@ export default class GaleriaImagenes extends Component<Props> {
     const equipo = navigation.getParam('equipo', 'NO-ID');
     const jugador = navigation.getParam('jugador', 'NO-ID');
     
-
     //-----------------Eliminar del vector objetos-------------------------
 
     /* Extrayendo Equipos */
@@ -206,7 +205,8 @@ export default class GaleriaImagenes extends Component<Props> {
     }
 
     await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
-    alert("Jugador: "+jugador+" fue Eliminado correctamente.")
+    alert("Jugador: "+jugador+" fue Eliminado correctamente.");
+    this.props.navigation.navigate("Jugadores");
   }
 
   render() {
@@ -303,7 +303,7 @@ export default class GaleriaImagenes extends Component<Props> {
             this.EliminarJugador()}
           }
         >
-          <Text>Eliminar Jugador</Text>
+          <Text style={{color:'white',fontWeight:'bold'}}>Eliminar Jugador</Text>
           <Icon 
             name="ios-trash"
             type="ionicon"

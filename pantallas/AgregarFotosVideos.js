@@ -164,7 +164,7 @@ export default class AgregarFotos extends React.Component {
 
             objetoImagenesJugador[JugadorSeleccionado]=await vectorImagenes;
             await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
-            alert("Imagen Cargada Correctamente: PRIMERA CARGA");
+            alert("Cargada Correctamente: PRIMERA CARGA");
             this.setState({
               image:nameImage
             })
@@ -172,7 +172,7 @@ export default class AgregarFotos extends React.Component {
             /* Si el Jugador estaba en el objeto */
             var jugadoresConImgs=await Object.keys(objetoImagenesJugador);
             if(jugadoresConImgs.includes(JugadorSeleccionado)){
-              alert("Imagen Cargada Correctamente: JUGADOR POSEIA IMAGENES");
+              alert("Cargada Correctamente: JUGADOR POSEIA IMAGENES");
               var vector=await objetoImagenesJugador[JugadorSeleccionado];
               await vector.push(nameImage);
               objetoImagenesJugador[JugadorSeleccionado]=await vector;
@@ -184,7 +184,7 @@ export default class AgregarFotos extends React.Component {
               var vectorImagenes=[nameImage];
               objetoImagenesJugador[JugadorSeleccionado]=await vectorImagenes
               await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
-              alert("Imagen Cargada Correctamente: PRIMERA CARGA PARA EL JUGADOR");
+              alert("Cargada Correctamente: PRIMERA CARGA PARA EL JUGADOR");
   
               this.setState({
                 image:nameImage
