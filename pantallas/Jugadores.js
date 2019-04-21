@@ -65,6 +65,52 @@ export default class Jugadores extends Component<Props> {
       }
   };
 
+  EliminarJugador=async(jugador)=>{
+    /* Este metodo se encarga de eliminar jugadores */
+    const { navigation } = this.props;
+    const equipo = navigation.getParam('equipo', 'NO-ID');
+    
+
+    //-----------------Eliminar del vector objetos-------------------------
+
+    /* Extrayendo Equipos */
+    var objetoEquipos=await JSON.parse(await AsyncStorage.getItem("ObjetoEquipos"));
+    var vectorJugadores=await objetoEquipos[equipo];
+    var indice=await vectorJugadores.indexOf(jugador);
+    await vectorJugadores.splice(indice,1);
+
+    if(vectorJugadores.length==0){
+      objetoEquipos[equipo]=await ["No Hay Jugadores"];
+    }else{
+      objetoEquipos[equipo]=await vectorJugadores;
+    }
+
+    await AsyncStorage.setItem("ObjetoEquipos",await JSON.stringify(objetoEquipos));
+
+    //-------------------Eliminar de la data ordenada------------------------
+    var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
+    var vectorObjetoJugadores=await dataOrdenadaSaved[equipo];
+    var indice2=await vectorObjetoJugadores.indexOf({label:jugador});
+    await vectorObjetoJugadores.splice(indice2,1)
+
+    if(vectorObjetoJugadores.length==0){
+      dataOrdenadaSaved[equipo]=await [{label:"No Hay Jugadores"}]
+    }else{
+      dataOrdenadaSaved[equipo]=await vectorObjetoJugadores
+    }
+
+    //--------------------Eliminar del objeto jugadores-----------------------
+    var objetoImagenesJugador=await JSON.parse(await AsyncStorage.getItem("objetoImagenesJugador"));
+    vectorImagenesJugador=await objetoImagenesJugador[jugador];
+    if(vectorImagenesJugador!=undefined){
+      await delete objetoImagenesJugador[jugador]
+    }
+
+    await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
+    alert("Jugador: "+jugador+" fue Eliminado correctamente.")
+  }
+
+
 
   /* Render Items */
   renderItem = ({ item, index, move, moveEnd, isActive }) => {
@@ -81,9 +127,12 @@ export default class Jugadores extends Component<Props> {
         onLongPress={move}
         onPressOut={moveEnd}
         onPress={()=>{
-            this.EsdatisticasEquipo(item.label)
+            this.EsdatisticasEquipo(item.label);
           }
         }
+        onLongPress={()=>{
+          this.EliminarJugador(item.label);
+        }}
       >
         <Text style={{ 
           fontWeight: 'bold', 
