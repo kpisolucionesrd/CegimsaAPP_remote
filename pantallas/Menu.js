@@ -33,7 +33,7 @@ export default class Menu extends React.Component {
   render() {
     //AsyncStorage.clear()
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Image source={img} style={styles.logoIMG}/>
 
         <TouchableOpacity
@@ -87,7 +87,7 @@ export default class Menu extends React.Component {
           />
           <Text style={{color:'white',fontWeight:'bold',fontSize:50,lineHeight:80}}>Analisis</Text>
         </TouchableOpacity>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgb(15,24,130)',
     flex:1,
-    paddingBottom:50
+    height:'100%'
   },
   logoIMG:{
     resizeMode:'contain',

@@ -144,7 +144,8 @@ export default class AgregarFotos extends React.Component {
           waitUntilSaved:true
         },
         mediaType:'mixed',
-        noData:false
+        noData:false,
+        quality:1
       };
     
     var JugadorSeleccionado=this.state.JugadorSeleccionado;

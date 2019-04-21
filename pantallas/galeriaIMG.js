@@ -159,7 +159,6 @@ export default class GaleriaImagenes extends Component<Props> {
     })
   }
 
-
   EliminarJugador=async()=>{
     /* Este metodo se encarga de eliminar jugadores */
     const { navigation } = this.props;
@@ -223,7 +222,7 @@ export default class GaleriaImagenes extends Component<Props> {
               minimumZoomScale={1}
               maximumZoomScale={3}
               onLoad={() => console.log("Image loaded!")}
-              style={{width:'100%', height: 800,marginBottom:20}} />
+              style={{width:'100%', height: 1400,marginBottom:20}} />
             </View>
 
           <TouchableOpacity
