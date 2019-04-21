@@ -1,7 +1,5 @@
 import React, {Component,PureComponent} from 'react';
 import {Platform,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,Dimensions} from 'react-native';
-import PhotoBrowser from 'react-native-photo-browser';
-import ImageZoom from 'react-native-image-pan-zoom';
 import PhotoView from 'react-native-photo-view';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';

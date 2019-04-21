@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image} from 'react-native';
+import {Platform,TouchableOpacity,StyleSheet, Text,ScrollView,AsyncStorage,Image,Modal} from 'react-native';
 import img from '../imgs/logo.png';
+import { Icon } from 'react-native-elements';
 
 
 type Props = {};
@@ -9,7 +10,8 @@ export default class Equipos extends Component<Props> {
   constructor(props){
       super(props);
       this.state={
-        equipos:["Equipo1-D","Equipo2-D"]
+        equipos:["Equipo1-D","Equipo2-D"],
+        modalVisible:false
       }
   
       this.Initialsconfigurations().then(result=>{
@@ -55,6 +57,35 @@ export default class Equipos extends Component<Props> {
     var equipoRender=this.state.equipos;
     return (
       <ScrollView style={styles.container}>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+        >
+          <ScrollView style={{marginTop: 22}}>
+
+          <TouchableOpacity
+            style={styles.btnModal}
+            onPress={()=>{
+              alert("Eliminar Elemento");
+              this.setState({
+                modalVisible:false
+              })
+            }}
+          >
+            <Icon 
+              name="ios-trash"
+              type="ionicon"
+              color="white"
+              size={60}
+            />
+          </TouchableOpacity>
+
+          </ScrollView>
+        </Modal>
+
+
+
         <Image source={img} style={styles.logoIMG}/>
         {
           equipoRender.map((equipo)=>{
@@ -65,7 +96,9 @@ export default class Equipos extends Component<Props> {
               this.EsdatisticasEquipo(equipo);
             }}
             onLongPress={()=>{
-              alert("PRESION LARGA")
+              this.setState({
+                modalVisible:true
+              })
             }}
             >
             <Text style={styles.labelMenu}>{equipo}</Text>
@@ -101,6 +134,22 @@ const styles = StyleSheet.create({
       marginRight:'auto',
       alignItems: 'center',
       paddingTop: 10,
+      marginBottom:'5%',
+      shadowColor:'black',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:15
+    },
+    btnModal:{
+      backgroundColor:'rgb(236,73,16)',
+      width:'40%',
+      height:100,
+      marginLeft:'auto',
+      marginRight:'auto',
+      alignItems: 'center',
+      paddingTop: 5,
       marginBottom:'5%',
       shadowColor:'black',
       shadowOffset:{
