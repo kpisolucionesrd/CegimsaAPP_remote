@@ -114,7 +114,6 @@ export default class GaleriaImagenes extends Component<Props> {
         var vector=await objetoImagenes[jugador]
         return vector;
       }else{
-          alert("No hay Jugadores para mostrar");
           return ["No Hay Jugadores"]
       }
   };
@@ -206,7 +205,7 @@ export default class GaleriaImagenes extends Component<Props> {
 
     await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
     alert("Jugador: "+jugador+" fue Eliminado correctamente.");
-    this.props.navigation.navigate("Jugadores");
+    this.props.navigation.navigate("Equipos");
   }
 
   render() {
