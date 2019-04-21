@@ -59,7 +59,7 @@ export default class Equipos extends Component<Props> {
       <ScrollView style={styles.container}>
         <Modal
           animationType="slide"
-          transparent={false}
+          transparent={true}
           visible={this.state.modalVisible}
         >
           <ScrollView style={{marginTop: 22}}>
