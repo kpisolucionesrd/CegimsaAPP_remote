@@ -41,6 +41,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* cegimsaappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cegimsaappTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2F808CAC2256CF3A00DB10E8 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F808CAB2256CEB900DB10E8 /* libRCTCameraRoll.a */; };
+		2FE11C8C226CF46A00FFF2DF /* 40X2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE11C59226CF46A00FFF2DF /* 40X2 (1).png */; };
 		30BCF9428F9941A484F15776 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57987C0516AD4504AA15F02B /* libRNVectorIcons-tvOS.a */; };
 		449AAB880DE44D58AD16AC72 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C178FD8FDAD4A15945A901E /* Foundation.ttf */; };
 		692679B6E246407DAA533E37 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1849708CD4F6EB7958BEC /* MaterialIcons.ttf */; };
@@ -464,6 +465,7 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED915A9B93C4FAC848F89CD /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		2F808CA62256CEB900DB10E8 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
+		2FE11C59226CF46A00FFF2DF /* 40X2 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "40X2 (1).png"; path = "cegimsaapp/Images.xcassets/40X2 (1).png"; sourceTree = "<group>"; };
 		33CC75B41EDD4EF09FA7ADED /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		3BBB9FFC123E414B928A2495 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		3C178FD8FDAD4A15945A901E /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				2FE11C59226CF46A00FFF2DF /* 40X2 (1).png */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -1489,6 +1492,7 @@
 				B13A2CA005994287884F0128 /* MaterialCommunityIcons.ttf in Resources */,
 				692679B6E246407DAA533E37 /* MaterialIcons.ttf in Resources */,
 				B204684619A84ECDA0462729 /* Octicons.ttf in Resources */,
+				2FE11C8C226CF46A00FFF2DF /* 40X2 (1).png in Resources */,
 				D3094C101EB149D7BADAB9BC /* SimpleLineIcons.ttf in Resources */,
 				F7F80E1B21FD4279A3A4E17A /* Zocial.ttf in Resources */,
 			);
