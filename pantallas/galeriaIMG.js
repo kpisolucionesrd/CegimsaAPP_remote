@@ -1,5 +1,5 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,Dimensions} from 'react-native';
+import {Platform,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,Button} from 'react-native';
 import PhotoView from 'react-native-photo-view';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
@@ -63,6 +63,13 @@ export default class GaleriaImagenes extends Component<Props> {
   
   static navigationOptions = {
     title: 'Galeria Imagenes',
+    headerRight: (
+      <Button
+        onPress={() => alert('This is a button!')}
+        title="Info"
+        color="#fff"
+      />
+    )
   };
 
   async componentDidMount(){
@@ -281,19 +288,6 @@ export default class GaleriaImagenes extends Component<Props> {
 
           </ScrollView>
         </Modal>
-
-        <TouchableOpacity
-          style={styles.btnModal}
-          onPress={this.ActualizarGaleria}
-        >
-          <Icon 
-            name="ios-refresh-circle"
-            type="ionicon"
-            color="white"
-            size={60}
-          />
-        </TouchableOpacity>
-
 
         <TouchableOpacity
           style={styles.btnModal}
