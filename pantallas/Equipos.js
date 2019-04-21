@@ -64,6 +64,9 @@ export default class Equipos extends Component<Props> {
             onPress={()=>{
               this.EsdatisticasEquipo(equipo);
             }}
+            onLongPress={()=>{
+              alert("PRESION LARGA")
+            }}
             >
             <Text style={styles.labelMenu}>{equipo}</Text>
             </TouchableOpacity>
