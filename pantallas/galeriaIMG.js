@@ -1,5 +1,5 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,Button} from 'react-native';
+import {Platform,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,AlertIOS} from 'react-native';
 import PhotoView from 'react-native-photo-view';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
