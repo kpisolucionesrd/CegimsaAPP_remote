@@ -177,7 +177,7 @@ export default class GaleriaImagenes extends Component<Props> {
     await vectorJugadores.splice(indice,1);
 
     if(vectorJugadores.length==0){
-      objetoEquipos[equipo]=await ["No Hay Jugadores"];
+      await delete objetoEquipos[equipo];
     }else{
       objetoEquipos[equipo]=await vectorJugadores;
     }
