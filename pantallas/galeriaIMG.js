@@ -186,14 +186,16 @@ export default class GaleriaImagenes extends Component<Props> {
 
     //-------------------Eliminar de la data ordenada------------------------
     var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
-    var vectorObjetoJugadores=await dataOrdenadaSaved[equipo];
-    var indice2=await vectorObjetoJugadores.indexOf({label:jugador});
-    await vectorObjetoJugadores.splice(indice2,1)
+    if(dataOrdenadaSaved!=null){
+      var vectorObjetoJugadores=await dataOrdenadaSaved[equipo];
+      var indice2=await vectorObjetoJugadores.indexOf({label:jugador});
+      await vectorObjetoJugadores.splice(indice2,1)
 
-    if(vectorObjetoJugadores.length==0){
-      dataOrdenadaSaved[equipo]=await [{label:"No Hay Jugadores"}]
-    }else{
-      dataOrdenadaSaved[equipo]=await vectorObjetoJugadores
+      if(vectorObjetoJugadores.length==0){
+        dataOrdenadaSaved[equipo]=await [{label:"No Hay Jugadores"}]
+      }else{
+        dataOrdenadaSaved[equipo]=await vectorObjetoJugadores
+      }
     }
 
     //--------------------Eliminar del objeto jugadores-----------------------
