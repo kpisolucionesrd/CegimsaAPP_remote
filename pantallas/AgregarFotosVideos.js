@@ -8,8 +8,8 @@ export default class AgregarFotos extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      equipos:["Sin Equipo"],
-      jugadores:["Sin Jugador"],
+      equipos:[""],
+      jugadores:[""],
       ojbetoEquipos:{},
       JugadorSeleccionado:null,
       EquipoSeleccionado:null,
