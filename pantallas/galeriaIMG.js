@@ -66,7 +66,7 @@ export default class GaleriaImagenes extends Component<Props> {
     headerRight: (
       <Button
         onPress={() =>{
-          this.EliminarJugador()
+          this.EliminarJugador().bind(this)
         }
       }
         title="Borrar Jugador"
