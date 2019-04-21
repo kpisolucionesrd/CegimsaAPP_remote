@@ -53,6 +53,21 @@ export default class Equipos extends Component<Props> {
       });
     };
 
+    EliminarEquipo=async(equipo)=>{
+      /* Este metodo se utiliza para eliminar equipos del vector equipos */
+
+
+      /* Extrayendo Equipos */
+      var equipos=await JSON.parse(await AsyncStorage.getItem("Equipos"));
+      var indice=await equipos.indexOf(equipo);
+      equipos.splice(indice,1);
+
+      await AsyncStorage.setItem("Equipos",await JSON.stringify(equipos));
+      alert("Se Elimino el equipo:"+equipo);
+    }
+
+
+
   render() {
     var equipoRender=this.state.equipos;
     return (
@@ -67,7 +82,7 @@ export default class Equipos extends Component<Props> {
           <TouchableOpacity
             style={styles.btnModal}
             onPress={()=>{
-              alert("Eliminar Elemento");
+              this.EliminarEquipo(this.state.equipoEliminar);
               this.setState({
                 modalVisible:false
               })
@@ -84,8 +99,6 @@ export default class Equipos extends Component<Props> {
           </ScrollView>
         </Modal>
 
-
-
         <Image source={img} style={styles.logoIMG}/>
         {
           equipoRender.map((equipo)=>{
@@ -97,7 +110,8 @@ export default class Equipos extends Component<Props> {
             }}
             onLongPress={()=>{
               this.setState({
-                modalVisible:true
+                modalVisible:true,
+                equipoEliminar:equipo
               })
             }}
             >
@@ -146,6 +160,7 @@ const styles = StyleSheet.create({
       backgroundColor:'rgb(236,73,16)',
       width:'40%',
       height:100,
+      marginTop:100,
       marginLeft:'auto',
       marginRight:'auto',
       alignItems: 'center',
