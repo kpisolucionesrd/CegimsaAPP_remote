@@ -65,8 +65,52 @@ export default class GaleriaImagenes extends Component<Props> {
     title: 'Galeria Imagenes',
     headerRight: (
       <Button
-        onPress={() =>{
-          this.EliminarJugador().bind(GaleriaImagenes)
+        onPress={async () =>{
+          /* Este metodo se encarga de eliminar jugadores */
+          const { navigation } = this.props;
+          const equipo = navigation.getParam('equipo', 'NO-ID');
+          const jugador = navigation.getParam('jugador', 'NO-ID');
+          
+          //-----------------Eliminar del vector objetos-------------------------
+
+          /* Extrayendo Equipos */
+          var objetoEquipos=await JSON.parse(await AsyncStorage.getItem("ObjetoEquipos"));
+          var vectorJugadores=await objetoEquipos[equipo];
+          var indice=await vectorJugadores.indexOf(jugador);
+          await vectorJugadores.splice(indice,1);
+
+          if(vectorJugadores.length==0){
+            await delete objetoEquipos[equipo];
+          }else{
+            objetoEquipos[equipo]=await vectorJugadores;
+          }
+
+          await AsyncStorage.setItem("ObjetoEquipos",await JSON.stringify(objetoEquipos));
+
+          //-------------------Eliminar de la data ordenada------------------------
+          var dataOrdenadaSaved=await JSON.parse(await AsyncStorage.getItem("orderList"));
+          if(dataOrdenadaSaved!=null){
+            var vectorObjetoJugadores=await dataOrdenadaSaved[equipo];
+            var indice2=await vectorObjetoJugadores.indexOf({label:jugador});
+            await vectorObjetoJugadores.splice(indice2,1)
+
+            if(vectorObjetoJugadores.length==0){
+              dataOrdenadaSaved[equipo]=await [{label:"No Hay Jugadores"}]
+            }else{
+              dataOrdenadaSaved[equipo]=await vectorObjetoJugadores
+            }
+          }
+
+          //--------------------Eliminar del objeto jugadores-----------------------
+          var objetoImagenesJugador=await JSON.parse(await AsyncStorage.getItem("objetoImagenesJugador"));
+          vectorImagenesJugador=await objetoImagenesJugador[jugador];
+          if(vectorImagenesJugador!=undefined){
+            await delete objetoImagenesJugador[jugador]
+          }
+
+          await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenesJugador));
+          alert("Jugador: "+jugador+" fue Eliminado correctamente.");
+          this.props.navigation.navigate("Equipos");
         }
       }
         title="Borrar Jugador"
