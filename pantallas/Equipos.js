@@ -10,7 +10,7 @@ export default class Equipos extends Component<Props> {
   constructor(props){
       super(props);
       this.state={
-        equipos:["Equipo1-D","Equipo2-D"],
+        equipos:["Favor ingresar Equipo"],
         modalVisible:false
       }
   
@@ -64,9 +64,17 @@ export default class Equipos extends Component<Props> {
 
       await AsyncStorage.setItem("Equipos",await JSON.stringify(equipos));
       alert("Se Elimino el equipo:"+equipo);
+
+      if(equipos.length>0){
+        this.setState({
+          equipos:equipos
+        })
+      }else{
+        this.setState({
+          equipos:["Favor ingresar Equipo"]
+        })
+      }
     }
-
-
 
   render() {
     var equipoRender=this.state.equipos;
