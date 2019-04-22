@@ -212,6 +212,36 @@ export default class GaleriaImagenes extends Component<Props> {
     );
   }
 
+  eliminarImagen=async(valor)=>{
+    //Eliminar imagen seleccionada
+    const { navigation } = this.props;
+    const jugador = navigation.getParam('jugador', 'NO-ID');
+    var indice;
+
+    /* Extrayendo Equipos */
+    var objetoImagenes=await JSON.parse(await AsyncStorage.getItem("objetoImagenesJugador"));
+    var vectorImgJugador=await objetoImagenes[jugador];
+
+    await vectorImgJugador.forEach((elemento)=>{
+      if(valor.includes(elemento)){
+        indice=await vectorImgJugador.indexOf(elemento);
+      }
+    });
+
+    await vectorImgJugador.splice(indice,1);
+    
+    if(vectorImgJugador.length==0){
+      await delete objetoImagenes[jugador];
+    }else{
+      objetoImagenes[jugador]=await vectorImgJugador;
+    }
+
+    await AsyncStorage.setItem("objetoImagenesJugador",await JSON.stringify(objetoImagenes));
+
+    alert("Imagen/video Eliminada Correctamente");
+    this.props.navigation.navigate("Jugadores");
+  }
+
   render() {
     return (
       <ScrollView>
@@ -308,11 +338,18 @@ export default class GaleriaImagenes extends Component<Props> {
             this.state.vectorImagenesName.map((valor)=>{
               if(valor!="imagenDefault"){
               return(
-                <TouchableOpacity onPress={()=>
+                <TouchableOpacity
+                onPress={()=>
                   {
-                    this.mostrarImagen(valor)
+                    this.mostrarImagen(valor);
                   }
-                }>
+                }
+                onLongPress={
+                  ()=>{
+                    this.eliminarImagen(valor);
+                  }
+                }
+                >
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
                 </TouchableOpacity>
               )}
