@@ -222,7 +222,7 @@ export default class GaleriaImagenes extends Component<Props> {
     var objetoImagenes=await JSON.parse(await AsyncStorage.getItem("objetoImagenesJugador"));
     var vectorImgJugador=await objetoImagenes[jugador];
 
-    await vectorImgJugador.forEach((elemento)=>{
+    await vectorImgJugador.forEach(async(elemento)=>{
       if(valor.includes(elemento)){
         indice=await vectorImgJugador.indexOf(elemento);
       }
@@ -340,8 +340,11 @@ export default class GaleriaImagenes extends Component<Props> {
               return(
                 <TouchableOpacity
                 onPress={()=>
-                  {
-                    this.mostrarImagen(valor);
+                  { AlertIOS.prompt("Si desea eliminar favor escribir: YES",null,async(text)=>{
+                    if(text=="YES"){
+                      this.mostrarImagen(valor);
+                      }
+                    })
                   }
                 }
                 onLongPress={
