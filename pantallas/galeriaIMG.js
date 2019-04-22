@@ -340,17 +340,16 @@ export default class GaleriaImagenes extends Component<Props> {
               return(
                 <TouchableOpacity
                 onPress={()=>
-                  { AlertIOS.prompt("Si desea eliminar favor escribir: YES",null,async(text)=>{
-                    if(text=="YES"){
-                      this.mostrarImagen(valor);
-                      }
-                    })
+                  { 
+                    this.mostrarImagen(valor);
                   }
                 }
                 onLongPress={
-                  ()=>{
-                    this.eliminarImagen(valor);
-                  }
+                  ()=>AlertIOS.prompt("Si desea eliminar favor escribir: YES",null,async(text)=>{
+                    if(text=="YES"){
+                      this.eliminarImagen(valor);
+                    }
+                  })
                 }
                 >
                   <Image source={this.state.media[valor]} style={styles.imgGaleria}/>
