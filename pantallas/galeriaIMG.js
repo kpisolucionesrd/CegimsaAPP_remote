@@ -361,11 +361,20 @@ export default class GaleriaImagenes extends Component<Props> {
             this.state.vectorVideosName.map((valor)=>{
               if(valor!="videoDefault"){
               return(
-                <TouchableOpacity onPress={()=>
+                <TouchableOpacity
+                onPress={()=>
                   {
                     this.mostrarVideo(valor)
                   }
-                }>
+                }
+                onLongPress={
+                  ()=>AlertIOS.prompt("Si desea eliminar favor escribir: YES",null,async(text)=>{
+                    if(text=="YES"){
+                      this.eliminarImagen(valor);
+                    }
+                  })
+                }
+                >
                 <Video source={this.state.mediaVideos[valor]}
                   ref={(ref) => {
                     this.player = ref
