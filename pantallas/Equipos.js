@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
       marginLeft:'auto',
       marginRight:'auto',
       height:240,
-      marginBottom:'25%'
+      marginBottom:100
     },
     btnMenu:{
       backgroundColor:'rgb(236,73,16)',
