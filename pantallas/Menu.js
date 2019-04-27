@@ -94,8 +94,7 @@ export default class Menu extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgb(15,24,130)',
-    flex:1
+    backgroundColor: 'rgb(15,24,130)'
   },
   logoIMG:{
     resizeMode:'contain',
