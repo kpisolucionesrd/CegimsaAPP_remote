@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     width:'50%',
     marginLeft:'auto',
     marginRight:'auto',
-    height:180,
+    height:240,
     marginBottom:100
   },
   btnMenu:{

@@ -1,5 +1,5 @@
 import React, {Component,PureComponent} from 'react';
-import {Platform,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,AlertIOS} from 'react-native';
+import {Dimensions,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,AlertIOS} from 'react-native';
 import PhotoView from 'react-native-photo-view';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
@@ -257,7 +257,7 @@ export default class GaleriaImagenes extends Component<Props> {
               minimumZoomScale={1}
               maximumZoomScale={3}
               onLoad={() => console.log("Image loaded!")}
-              style={{width:'100%', height: 1400,marginBottom:20}} />
+              style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginBottom:20}} />
             </View>
 
           <TouchableOpacity
@@ -294,7 +294,7 @@ export default class GaleriaImagenes extends Component<Props> {
                   onError={this.videoError}
                   controls={true}
                   fullscreen={true}
-                  style={{width:'100%',height:1200,marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
+                  style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginLeft:'auto',marginRight:'auto',marginBottom:10}}/>
             </View>
 
           <TouchableOpacity
