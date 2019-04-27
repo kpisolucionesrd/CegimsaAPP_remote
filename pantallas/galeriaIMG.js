@@ -252,37 +252,29 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <ScrollView style={{marginTop: 22}}>
             <View>
-            <Icon 
-              name="ios-close-circle"
-              type="ionicon"
-              color="red"
-              size={120}
-              containerStyle={{position:'absolute',top:0,left:0,bottom:0,right:0}}
-            />
-            <PhotoView
-              source={this.state.imgModal}
-              minimumZoomScale={1}
-              maximumZoomScale={3}
-              onLoad={() => console.log("Image loaded!")}
-              style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginBottom:20}} />
+              <TouchableOpacity
+              style={styles.btnModal}
+              onPress={()=>{
+                this.setState({
+                  modalVisible:false
+                })
+              }}
+              >
+                <Icon 
+                  name="ios-close-circle"
+                  type="ionicon"
+                  color="white"
+                  size={60}
+                />
+              </TouchableOpacity>
+              <PhotoView
+                source={this.state.imgModal}
+                minimumZoomScale={1}
+                maximumZoomScale={3}
+                onLoad={() => console.log("Image loaded!")}
+                style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginBottom:20}}
+              />
             </View>
-
-          <TouchableOpacity
-            style={styles.btnModal}
-            onPress={()=>{
-              this.setState({
-                modalVisible:false
-              })
-            }}
-          >
-            <Icon 
-              name="ios-close-circle"
-              type="ionicon"
-              color="white"
-              size={60}
-            />
-          </TouchableOpacity>
-
           </ScrollView>
         </Modal>
 
