@@ -255,8 +255,8 @@ export default class GaleriaImagenes extends Component<Props> {
             <Icon 
               name="ios-close-circle"
               type="ionicon"
-              color="white"
-              size={60}
+              color="red"
+              size={120}
               containerStyle={{position:'absolute',top:0,left:0,bottom:0,right:0}}
             />
             <PhotoView
