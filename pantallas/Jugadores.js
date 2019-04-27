@@ -157,13 +157,13 @@ const styles = StyleSheet.create({
       width:'50%',
       marginLeft:'auto',
       marginRight:'auto',
-      height:'30%',
+      height:240,
       marginBottom:'25%'
     },
     btnMenu:{
       backgroundColor:'rgb(236,73,16)',
       width:'70%',
-      height:'35%',
+      height:80,
       marginLeft:'auto',
       marginRight:'auto',
       alignItems: 'center',
