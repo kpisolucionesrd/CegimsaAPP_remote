@@ -252,6 +252,13 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <ScrollView style={{marginTop: 22}}>
             <View>
+            <Icon 
+              name="ios-close-circle"
+              type="ionicon"
+              color="white"
+              size={60}
+              containerStyle={{position:'absolute',top:0,left:0,bottom:0,right:0}}
+            />
             <PhotoView
               source={this.state.imgModal}
               minimumZoomScale={1}
