@@ -382,7 +382,9 @@ export default class GaleriaImagenes extends Component<Props> {
                   }}
                   onBuffer={this.onBuffer}
                   onError={this.videoError}
-                  style={styles.backgroundVideo}/>
+                  style={styles.backgroundVideo}
+                  muted={true}
+                  />
                 </TouchableOpacity>
               )}
             })
