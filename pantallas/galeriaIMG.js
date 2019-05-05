@@ -275,7 +275,39 @@ export default class GaleriaImagenes extends Component<Props> {
                   maximumZoomScale={3}
                   onLoad={() => console.log("Image loaded!")}
                   style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginBottom:20}}
-                />
+                >
+                <TouchableOpacity
+                  style={styles.btnBack}
+                  onPress={()=>{
+                    this.setState({
+                      modalVisible:false
+                    })
+                  }}
+                >
+                  <Icon 
+                    name="ios-skip-backward"
+                    type="ionicon"
+                    color="white"
+                    size={60}
+                  />
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={styles.btnBack}
+                  onPress={()=>{
+                    this.setState({
+                      modalVisible:false
+                    })
+                  }}
+                >
+                  <Icon 
+                    name="ios-skip-forward"
+                    type="ionicon"
+                    color="white"
+                    size={60}
+                  />
+                </TouchableOpacity>
+                 </PhotoView>
               </GestureRecognizer>
             </View>
 
@@ -424,6 +456,22 @@ const styles = StyleSheet.create({
       height:100,
       marginLeft:'auto',
       marginRight:'auto',
+      alignItems: 'center',
+      paddingTop: 5,
+      marginBottom:'5%',
+      shadowColor:'black',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:15
+    },
+    btnBack:{
+      backgroundColor:'rgb(15,24,130)',
+      width:'17%',
+      height:50,
+      marginTop:'auto',
+      marginBottom:'auto',
       alignItems: 'center',
       paddingTop: 5,
       marginBottom:'5%',
