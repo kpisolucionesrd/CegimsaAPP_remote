@@ -288,7 +288,7 @@ export default class GaleriaImagenes extends Component<Props> {
                     name="ios-skip-backward"
                     type="ionicon"
                     color="white"
-                    size={60}
+                    size={30}
                   />
                 </TouchableOpacity>
                 
@@ -304,7 +304,7 @@ export default class GaleriaImagenes extends Component<Props> {
                     name="ios-skip-forward"
                     type="ionicon"
                     color="white"
-                    size={60}
+                    size={30}
                   />
                 </TouchableOpacity>
                  </PhotoView>
@@ -474,7 +474,6 @@ const styles = StyleSheet.create({
       marginBottom:'auto',
       alignItems: 'center',
       paddingTop: 5,
-      marginBottom:'5%',
       shadowColor:'black',
       shadowOffset:{
         width:5,
