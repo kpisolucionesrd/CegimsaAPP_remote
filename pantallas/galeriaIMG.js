@@ -515,7 +515,7 @@ const styles = StyleSheet.create({
       position:'absolute',
       width:'17%',
       top:'50%',
-      left:'100%',
+      right:'100%',
       height:50,
       paddingTop: 5,
       shadowColor:'black',
