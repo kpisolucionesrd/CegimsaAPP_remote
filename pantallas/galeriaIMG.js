@@ -1,6 +1,7 @@
 import React, {Component,PureComponent} from 'react';
 import {Dimensions,Text,TouchableOpacity,StyleSheet,ScrollView,AsyncStorage,Image,View,Modal,AlertIOS} from 'react-native';
 import PhotoView from 'react-native-photo-view';
+import GestureRecognizer,{swipeDirections} from 'react-native-swipe-gestures';
 import { Icon } from 'react-native-elements';
 import Video from 'react-native-video';
 var RNFS=require('react-native-fs');
@@ -242,6 +243,17 @@ export default class GaleriaImagenes extends Component<Props> {
     this.props.navigation.navigate("Jugadores");
   }
 
+  onSwipeLeft(gestureState){
+    alert("pruebaSwipeLEFT");
+  };
+
+  onSwipeRight(gestureState){
+    alert("pruebaSwipeRIGHT");
+  };
+
+
+
+
   render() {
     return (
       <ScrollView>
@@ -252,13 +264,19 @@ export default class GaleriaImagenes extends Component<Props> {
         >
           <ScrollView style={{marginTop: 22}}>
             <View>
-              <PhotoView
-                source={this.state.imgModal}
-                minimumZoomScale={1}
-                maximumZoomScale={3}
-                onLoad={() => console.log("Image loaded!")}
-                style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginBottom:20}}
-              />
+              <GestureRecognizer
+                onSwipeLeft={(state)=>this.onSwipeLeft(state)}
+                onSwipeRight={(state)=>this.onSwipeRight(state)}
+                config={{velocityThreshold:0.3,directionalOffsetThreshold: 80}}
+              >
+                <PhotoView
+                  source={this.state.imgModal}
+                  minimumZoomScale={1}
+                  maximumZoomScale={3}
+                  onLoad={() => console.log("Image loaded!")}
+                  style={{width:Dimensions.get('window').width, height: Dimensions.get('window').height,marginBottom:20}}
+                />
+              </GestureRecognizer>
             </View>
 
           <TouchableOpacity
