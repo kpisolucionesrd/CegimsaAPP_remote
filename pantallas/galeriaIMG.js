@@ -152,14 +152,14 @@ export default class GaleriaImagenes extends Component<Props> {
       imgModal:this.state.media[imagen],
       modalVisible:true
     })
-  }
+  };
 
   mostrarVideo=async(video)=>{
     this.setState({
       videoModal:this.state.mediaVideos[video],
       modalVisibleVideo:true
     })
-  }
+  };
 
   EliminarJugador=async()=>{
     /* Este metodo se encarga de eliminar jugadores */
@@ -211,7 +211,7 @@ export default class GaleriaImagenes extends Component<Props> {
         }
       }
     );
-  }
+  };
 
   eliminarImagen=async(valor)=>{
     //Eliminar imagen seleccionada
@@ -241,7 +241,39 @@ export default class GaleriaImagenes extends Component<Props> {
 
     alert("Imagen/video Eliminada Correctamente");
     this.props.navigation.navigate("Jugadores");
-  }
+  };
+
+  cambiarImagenNext=async()=>{
+    var imgActual=await JSON.parse(await AsyncStorage.getItem("imgactual"));
+    var vectorImagenes=await this.state.vectorImagenesName;
+    if(imgActual==null || imgActual==undefined){
+      imgActual=await 0
+      await AsyncStorage.setItem("imgactual",await JSON.stringify(imgActual));
+    }else{
+      /* Vector imagenes sea mayor a imgActual */
+      if(vectorImagenes.length<imgActual){
+        imgActual=await 0;
+        await AsyncStorage.setItem("imgactual",await JSON.stringify(imgActual));
+        this.setState({
+          imgModal:vectorImagenes[imgActual]
+        })
+
+      }else if(vectorImagenes.length==imgActual){
+        this.setState({
+          imgModal:vectorImagenes[imgActual]
+        })
+        imgActual=await 0;
+        await AsyncStorage.setItem("imgactual",await JSON.stringify(imgActual));
+      }else{
+        this.setState({
+          imgModal:vectorImagenes[imgActual]
+        })
+        imgActual=await imgActual+1;
+        await AsyncStorage.setItem("imgactual",await JSON.stringify(imgActual));
+      }
+    }
+  };
+
 
   onSwipeLeft(gestureState){
     alert("pruebaSwipeLEFT");
@@ -250,8 +282,6 @@ export default class GaleriaImagenes extends Component<Props> {
   onSwipeRight(gestureState){
     alert("pruebaSwipeRIGHT");
   };
-
-
 
 
   render() {
@@ -293,11 +323,9 @@ export default class GaleriaImagenes extends Component<Props> {
                 </TouchableOpacity>
                 
                 <TouchableOpacity
-                  style={styles.btnBack}
+                  style={styles.btnNext}
                   onPress={()=>{
-                    this.setState({
-                      modalVisible:false
-                    })
+                    this.cambiarImagenNext()
                   }}
                 >
                   <Icon 
@@ -472,6 +500,22 @@ const styles = StyleSheet.create({
       position:'absolute',
       width:'17%',
       top:'50%',
+      height:50,
+      paddingTop: 5,
+      shadowColor:'black',
+      shadowOffset:{
+        width:5,
+        height:5
+      },
+      shadowOpacity:15
+    },
+    btnNext:{
+      backgroundColor:'rgb(15,24,130)',
+      opacity:0.8,
+      position:'absolute',
+      width:'17%',
+      top:'50%',
+      left:'100%',
       height:50,
       paddingTop: 5,
       shadowColor:'black',
