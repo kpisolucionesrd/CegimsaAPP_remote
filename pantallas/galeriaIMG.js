@@ -467,12 +467,11 @@ const styles = StyleSheet.create({
       shadowOpacity:15
     },
     btnBack:{
-      backgroundColor:'rgb(15,24,130)',
+      backgroundColor:'rgb(15,24,130,0.8)',
+      position:'absolute',
       width:'17%',
+      top:'50%',
       height:50,
-      marginTop:'auto',
-      marginBottom:'auto',
-      alignItems: 'center',
       paddingTop: 5,
       shadowColor:'black',
       shadowOffset:{
